@@ -1,0 +1,195 @@
+[{
+  "_id": "CS",
+  "name": "Computer Science",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T14:43:02.862Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T14:43:02.862Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "M",
+  "name": "Mathematics",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:37:30.657Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:37:30.657Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE",
+  "name": "Software Engineering",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:37:49.467Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:37:49.467Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CE",
+  "name": "Civil Engineering",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:38:01.002Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:38:01.002Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "EE",
+  "name": "Electrical Engineering",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:39:07.910Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:39:07.910Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CMP",
+  "name": "Computer Engineering",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:40:43.621Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:40:43.621Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "ME",
+  "name": "Mechanical Engineering",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:41:11.726Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:41:11.726Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MS",
+  "name": "Management Sciences",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:41:30.646Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:41:30.646Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "P",
+  "name": "Psychology",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:41:45.278Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:41:45.278Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "AF",
+  "name": "Accounting and Finance",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:41:58.749Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:41:58.749Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "E",
+  "name": "English",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:42:10.245Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:42:10.245Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "BI",
+  "name": "Bioinformatics",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:42:26.712Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:42:26.712Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "BS",
+  "name": "Biosciences",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:42:44.824Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:42:44.824Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PH",
+  "name": "Pharmacy",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:42:58.514Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:42:58.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "ADP",
+  "name": "Associate Degree Program",
+  "dean": "",
+  "hod": "",
+  "createdAt": {
+    "$date": "2023-12-12T15:43:20.345Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T15:43:20.345Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,95 @@
+*{
+    overflow: hidden;
+}
+
+Link{
+    color: aliceblue;
+}
+
+.class-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2%;
+    width: 35%;
+    background: white;
+    padding-bottom: 1%;
+    border-radius: 30px;}
+
+.class-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 3;
+}
+
+.class-text{
+    margin-top: 6%;
+    background-color: white;
+    font-size: 35px;
+    font-weight: 700;
+}
+.class-underline{
+    width: 15%;
+    height:6px;
+    background:rgb(95, 95, 95);
+    border-radius: 9px;
+    margin-bottom: 10%;}
+
+.class-inputs{
+    margin-top: 7%;
+    flex-direction: column;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width:80%;
+    border-radius: 6px;}
+
+.class-inputs input{
+    padding-left: 3%;
+    height: 40px;
+    width:100%;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+}
+.class-attributes{
+    border-radius: 10px;
+    padding-left:50%;
+    background:rgba(213, 213, 213, 0.5);
+}
+
+.class-submit-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.class-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 59px;
+    gap: 10px;
+    margin: 8% auto;
+    color: white;
+    background: rgb(228, 157, 6);
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.Course-Button{
+    border: none;
+    color: #797979;
+}

@@ -1,0 +1,49 @@
+/* Add this CSS to style the QuizForm component */
+
+/* Style for the container div */
+div {
+  max-width: 600px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the buttons */
+button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style for the added questions section */
+h3 {
+  margin-top: 20px;
+}
+
+/* Style for question statement input and remove button */
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Style for the top buttons */
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style for the added questions */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for the added questions list items */
+li {
+  margin-bottom: 10px;
+}

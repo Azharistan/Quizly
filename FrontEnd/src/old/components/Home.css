@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .logo img {
+    display: flex;
+    max-height: 60px;
+  }
+  
+  .options ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .options li {
+    margin: 0 10px;
+  }
+  
+  .options a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .logo{
+    transition: filter 300ms;
+    padding-left: 3%;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #77cdf5aa);
+  }
+  .options a:hover {
+    text-decoration: none;
+    color:  #b586c5;
+  }

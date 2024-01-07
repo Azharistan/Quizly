@@ -1,0 +1,92 @@
+.Edit-ContainerSTD{
+    margin: auto;
+    margin-top: 2%;
+    width: 35%;
+    background: white;
+    padding-bottom: 1%;
+    border-radius: 30px;
+}
+
+.Edit-HeaderSTD{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.Edit-TextSTD{
+    margin-top: 6%;
+    color: #3c009d;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.underlineStd{
+    width: 15%;
+    height:6px;
+    background:#3c009d;
+    border-radius: 9px;
+}
+
+.Edit-inputsStd{
+    margin-top: 6%;
+    display: flex;
+    gap: 20px;
+    
+}
+
+.Edit-inputStd{
+    display: flex;
+    margin: auto 10;
+    width:80%;
+    height: 5%;
+    background: #eaeaea;
+    border-radius: 6px;
+    justify-content:space-evenly;
+    justify-content:space-evenly;
+    
+}
+.az{
+    display: flex;
+    float: right;
+    margin-right: 10px;
+}
+
+.Edit-inputStd input{
+    padding-left: 3%;
+    height: 40px;
+    width:100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+}
+
+.Edit-SubmitButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
+    height: 59px;
+    gap: 10px;
+    margin: 8% auto;
+    color: white;
+    background: #4c00b4;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.submitStd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+

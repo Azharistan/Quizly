@@ -1,0 +1,59 @@
+.Show-ContainerStd{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2%;
+    width: 35%;
+    background: white;
+    padding-bottom: 1%;
+    border-radius: 30px;
+}
+
+.Show-HeaderSTD{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+}
+.Show-UnderlineSTD{
+    width: 30%;
+    margin-left: 35%;
+    height:6px;
+    background:#3c009d;
+    border-radius: 9px;
+}
+
+.textStd{
+    margin-top: 6%;
+    color: #3c009d;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.Show-inputsStd{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Show-inputStd{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width:80%;
+    height: 5%;
+    background: #eaeaea;
+    border-radius: 6px;
+    background: none;
+}
+
+.Show-inputStd p{
+    font-weight: bold;
+}
+
+.Show-inputStd{
+    display: flex;
+    justify-content: space-between;
+}

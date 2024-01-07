@@ -1,0 +1,47 @@
+/* File: QuizForm.css */
+
+.quiz-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .quiz-form-section {
+    margin-bottom: 20px;
+  }
+  
+  .question-statement-input {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .button-container {
+    margin-top: 10px;
+  }
+  
+  .added-questions-container {
+    margin-top: 20px;
+    background-color: rgba(0, 128, 128, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .added-questions-container h3 {
+    margin-bottom: 10px;
+  }
+  
+  .added-questions-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .added-questions-list li {
+    margin-bottom: 5px;
+  }
+  

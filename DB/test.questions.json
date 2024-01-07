@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "6541081e759cae78b3ee437a"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T13:58:54.253Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T13:58:54.253Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65411e1e09302475850698cb"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T15:32:46.067Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T15:32:46.067Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65411e76f28264192cf7f2cb"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T15:34:14.311Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T15:34:14.311Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65411f23ccb0a608901a34d3"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T15:37:07.383Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T15:37:07.383Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65411f41e1f7d8eaccdc57ff"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T15:37:37.103Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T15:37:37.103Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65411faadce972a1be353732"
+  },
+  "questionID": "QUE001",
+  "courseID": "CSC001",
+  "statement": "What is the underroot of 100?",
+  "correct": "10",
+  "opt1": "14",
+  "opt2": "100",
+  "opt3": "10",
+  "opt4": "1",
+  "createdAt": {
+    "$date": "2023-10-31T15:39:22.287Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T15:39:22.287Z"
+  },
+  "__v": 0
+}]

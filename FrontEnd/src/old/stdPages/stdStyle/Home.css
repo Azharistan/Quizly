@@ -1,0 +1,45 @@
+.STD-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: snow;
+}
+
+
+.StdHeadings tr th {
+  padding: 2rem; 
+}
+
+.StdHeadings th {
+    border-bottom: 1px solid #000;
+}
+.Std-icons{
+    color: white;
+}
+
+.table-container{
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding-bottom: 3%;
+}
+td{
+    padding: auto 10px;
+}
+
+.STD-underline{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height:6px;
+    background:rgba(255, 255, 255, 0.25);
+    border-radius: 9px;
+}
+.Add-Button{
+    font-size: 50px;
+    transition: filter 300ms;
+}
+
+.Add-Button:hover{
+    filter: drop-shadow(0 0 2em #77cdf5aa);
+}

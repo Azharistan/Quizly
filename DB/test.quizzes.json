@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "65410928b903933aaba2038f"
+  },
+  "quizID": "QUIZ01",
+  "depID": "DEP001",
+  "courseID": "CSC001",
+  "createdBy": "prof001",
+  "marks": 20,
+  "date": "29-10-2023",
+  "questions": [],
+  "createdAt": {
+    "$date": "2023-10-31T14:03:20.121Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T14:03:20.121Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "QUIZ02",
+  "depID": "DEP001",
+  "courseID": "CSC001",
+  "createdBy": "prof001",
+  "marks": 20,
+  "date": "29-10-2023",
+  "questions": [],
+  "createdAt": {
+    "$date": "2023-10-31T14:09:51.468Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T14:09:51.468Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "QUIZ03",
+  "depID": "DEP001",
+  "courseID": "CSC001",
+  "createdBy": "prof001",
+  "marks": 20,
+  "date": "29-10-2023",
+  "questions": [
+    "QUE001"
+  ],
+  "createdAt": {
+    "$date": "2023-10-31T14:10:32.210Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-31T14:10:32.210Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,106 @@
+[{
+  "_id": "BCS201016",
+  "name": "M. Azhar Khan",
+  "whatsapp": "03421904152",
+  "semester": 1,
+  "email": "Azhar8work@gmail.com",
+  "password": "600dfb7dbb86d79965cad8770329baa6",
+  "createdAt": {
+    "$date": "2023-11-12T07:22:07.695Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-18T15:48:13.321Z"
+  },
+  "__v": 0,
+  "classes": [
+    {
+      "classID": "CS3413",
+      "approved": false,
+      "_id": {
+        "$oid": "657b2e02a0983a42fc3a397c"
+      }
+    },
+    {
+      "classID": "65789e31635452a216b367ac",
+      "approved": true,
+      "_id": {
+        "$oid": "657efc692d24b4f4a378ce8c"
+      }
+    },
+    {
+      "classID": "657dd2b2e41f3c6c49470637",
+      "approved": true,
+      "_id": {
+        "$oid": "657efcb42d24b4f4a378cf1c"
+      }
+    },
+    {
+      "classID": "657dd7e43299e1eae017cf17",
+      "approved": false,
+      "_id": {
+        "$oid": "657efd012d24b4f4a378cf86"
+      }
+    },
+    {
+      "classID": "657de3bc6b1c20e7f13f8c14",
+      "approved": false,
+      "_id": {
+        "$oid": "657efea12d24b4f4a378cfa4"
+      }
+    },
+    {
+      "classID": "657deda321f1b8524022c1c3",
+      "approved": false,
+      "_id": {
+        "$oid": "657efea22d24b4f4a378cfc5"
+      }
+    },
+    {
+      "classID": "657df24c21f1b8524022c49f",
+      "approved": true,
+      "_id": {
+        "$oid": "657efea32d24b4f4a378cfe9"
+      }
+    },
+    {
+      "classID": "657df24c21f1b8524022c49f",
+      "approved": true,
+      "_id": {
+        "$oid": "657efec82d24b4f4a378d0bf"
+      }
+    }
+  ]
+},
+{
+  "_id": "BCS201001",
+  "name": "Test@12345",
+  "whatsapp": "123",
+  "semester": 1,
+  "email": "Test@12345.com",
+  "password": "b410d378bf9dd08dc99b7c44a361b046",
+  "createdAt": {
+    "$date": "2023-12-16T15:34:48.039Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-19T13:14:35.169Z"
+  },
+  "__v": 0,
+  "classes": [
+    {
+      "classID": "65789e31635452a216b367ac",
+      "courseID": "HMSE1002",
+      "approved": true,
+      "_id": {
+        "$oid": "658197188e88663cc638e59a"
+      }
+    },
+    {
+      "classID": "657dd7e43299e1eae017cf17",
+      "courseID": "SE1143",
+      "approved": true,
+      "_id": {
+        "$oid": "6581971b8e88663cc638e5af"
+      }
+    }
+  ]
+}]

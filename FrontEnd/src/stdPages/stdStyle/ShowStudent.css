@@ -1,0 +1,56 @@
+.Show-ContainerIns{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2%;
+    width: 35%;
+    background: white;
+    padding-bottom: 1%;
+    border-radius: 30px;
+}
+
+.Show-HeaderIns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+}
+.Show-UnderlineIns{
+    width: 30%;
+    margin-left: 35%;
+    height:6px;
+    background: rgb(95, 95, 95);
+    border-radius: 9px;
+}
+
+.textIns{
+    margin-top: 6%;
+    color: rgb(46, 46, 46);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.Show-inputsIns{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width:80%;
+    height: 5%;
+    background: #eaeaea;
+    border-radius: 6px;
+    background: none;
+}
+
+.Show-inputsIns p{
+    font-weight: bold;
+}
+
+.Show-inputsIns{
+    display: flex;
+    justify-content: space-between;
+}

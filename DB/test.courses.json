@@ -1,0 +1,897 @@
+[{
+  "_id": "SE1131",
+  "name": "Introduction to Programming Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:05:21.212Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:05:21.212Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE1133",
+  "name": "Introduction to Programming",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:06:02.041Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:06:02.041Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTSE1013",
+  "name": "Calculus and Analytical Geometry",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:06:30.763Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:06:30.763Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PHSE1013",
+  "name": "Applied Physics",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:06:57.542Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:06:57.542Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE1002",
+  "name": "Pakistan Studies",
+  "depID": "SE",
+  "creditHr": 2,
+  "createdAt": {
+    "$date": "2023-12-12T16:07:20.797Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:07:20.797Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE1013",
+  "name": "English – I",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:07:41.535Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:07:41.535Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE1143",
+  "name": "Object Oriented Programming",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:08:05.154Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:08:05.154Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE1141",
+  "name": "Object Oriented Programming Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:08:44.836Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:08:44.836Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE1023",
+  "name": "English – II",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:09:07.302Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:09:07.302Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTSE1033",
+  "name": "Linear Algebra",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:09:29.340Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:09:29.340Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE1023",
+  "name": "Discrete Structures",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:09:49.428Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:09:49.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE2053",
+  "name": "Humanities-I",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:10:12.734Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:10:12.734Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE1012",
+  "name": "Islamic Studies/Ethics",
+  "depID": "SE",
+  "creditHr": 2,
+  "createdAt": {
+    "$date": "2023-12-12T16:10:44.974Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:10:44.974Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE2143",
+  "name": "Data Structures",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:11:13.133Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:11:13.133Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE2141",
+  "name": "Data Structures Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:11:39.711Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:11:39.711Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE2313",
+  "name": "Introduction to Database Systems",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:12:04.252Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:12:04.252Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE2311",
+  "name": "Introduction to Database Systems Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:12:34.248Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:12:34.248Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTSE3063",
+  "name": "Probability and Statistics",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:12:55.471Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:12:55.471Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE2033",
+  "name": "Technical Report Writing",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:13:42.302Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:13:42.302Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE3123",
+  "name": "Humanities-II",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:14:08.301Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:14:08.301Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSE1033",
+  "name": "Personal Management and Grooming",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:18:29.324Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:18:29.324Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE2223",
+  "name": "Software Engineering – I",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:18:49.188Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:18:49.188Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3773",
+  "name": "Computer Comm. and Networks",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:19:11.254Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:19:11.254Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3771",
+  "name": "Computer Comm. and Networks Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:19:29.918Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:19:29.918Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3413",
+  "name": "Operating Systems",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:19:52.182Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:19:52.182Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3411",
+  "name": "Operating Systems Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:20:11.467Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:20:11.467Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3263",
+  "name": "Software Requirement Engineering",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:20:35.126Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:20:35.126Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMSES2013",
+  "name": "\tProfessional Ethics and Legal Issues",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:20:57.881Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:20:57.881Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3713",
+  "name": "Introduction to Information Security and Forensics",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:21:27.046Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:21:27.046Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3312",
+  "name": "Software Architecture and Design",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:22:38.856Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:22:38.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3311",
+  "name": "Software Architecture and Design Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:22:59.150Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:22:59.150Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3272",
+  "name": "Human Computer Interaction",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:23:22.257Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:23:22.257Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3613",
+  "name": "Software Quality Engineering",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:23:47.766Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:23:47.766Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3512",
+  "name": "Software Construction and Development",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:24:11.430Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:24:11.430Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3511",
+  "name": "Software Construction and Development Lab",
+  "depID": "SE",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:24:40.672Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:24:40.672Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE3523",
+  "name": "Web Engineering",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:24:59.213Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:24:59.213Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE4273",
+  "name": "Software Project Management",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:25:19.979Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:25:19.979Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE4912",
+  "name": "Design Project (Part-I)",
+  "depID": "SE",
+  "creditHr": 9,
+  "createdAt": {
+    "$date": "2023-12-12T16:25:46.208Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:25:46.208Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "ACSE3003",
+  "name": "Management-I",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:26:05.101Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:26:05.101Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE4813",
+  "name": "Software Re-Engineering",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:26:23.008Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:26:23.008Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MGSE1003",
+  "name": "Management-II",
+  "depID": "SE",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:26:50.952Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:26:50.952Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "SE4924",
+  "name": "Design Project (Part-II)",
+  "depID": "SE",
+  "creditHr": 9,
+  "createdAt": {
+    "$date": "2023-12-12T16:27:11.798Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:27:11.798Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS1133",
+  "name": "Introduction to Programming",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:29:16.547Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:29:16.547Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS1131",
+  "name": "Introduction to Programming Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:29:43.677Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:29:43.677Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS1002",
+  "name": "Pakistan Studies",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:30:23.518Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:30:23.518Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS1013",
+  "name": "English – I (Functional English)",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:30:44.682Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:30:44.682Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTCS1013",
+  "name": "Calculus and Analytical Geometry",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:31:06.405Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:31:06.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PHCS1013",
+  "name": "Applied Physics",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:31:27.940Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:31:27.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "Cs1143",
+  "name": "Object Oriented Programming",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:32:02.690Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:32:02.690Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS1141",
+  "name": "Object Oriented Programming Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:32:24.815Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:32:24.815Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS1012",
+  "name": "Islamic Studies /Ethics",
+  "depID": "CS",
+  "creditHr": 2,
+  "createdAt": {
+    "$date": "2023-12-12T16:32:48.080Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:32:48.080Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS1023",
+  "name": "English – II (Communication Skills)",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:33:09.880Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:33:09.880Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS\t1xx3",
+  "name": "Introduction to Sociology",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:33:41.292Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:33:41.292Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTCS1033",
+  "name": "Linear Algebra",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:34:06.832Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:34:06.832Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2053",
+  "name": "Discrete Structures",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:34:29.251Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:34:29.251Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2143",
+  "name": "Data Structures",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:34:53.210Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:34:53.210Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2141",
+  "name": "Data Structures Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:35:15.699Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:35:15.699Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "MTCS3063",
+  "name": "Probability and Statistics",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:35:35.948Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:35:35.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "HMCS2033",
+  "name": "Technical Report Writing",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:35:57.435Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:35:57.435Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2311",
+  "name": "Introduction to Database Systems Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:36:18.865Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:36:18.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2313",
+  "name": "\tIntroduction to Database Systems",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:36:40.681Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:36:40.681Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS3XX3",
+  "name": "Graph Algorithms",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:37:20.158Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:37:20.158Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2223",
+  "name": "Software Engineering – I",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:38:13.173Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:38:13.173Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS3413",
+  "name": "Operating Systems",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:38:37.206Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:38:37.206Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS3411",
+  "name": "Operating Systems Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:38:59.702Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:38:59.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS3773",
+  "name": "Computer Networks",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:39:18.755Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:39:18.755Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS3771",
+  "name": "Computer Networks Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:39:41.285Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:39:41.285Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2513",
+  "name": "Digital Logic Design",
+  "depID": "CS",
+  "creditHr": 3,
+  "createdAt": {
+    "$date": "2023-12-12T16:40:01.111Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:40:01.111Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "CS2511\t",
+  "name": "Digital Logic Design Lab",
+  "depID": "CS",
+  "creditHr": 4,
+  "createdAt": {
+    "$date": "2023-12-12T16:40:31.208Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-12T16:40:31.208Z"
+  },
+  "__v": 0
+}]

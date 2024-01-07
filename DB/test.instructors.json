@@ -1,0 +1,135 @@
+[{
+  "_id": "PROF001",
+  "name": "Dr. M. Abdul Qadir",
+  "whatsapp": "03005011600",
+  "department": "DEP001",
+  "email": "AbdulQadir@cust.pk",
+  "password": "99c92a644c8d8da052c354e4662a34f7",
+  "createdAt": {
+    "$date": "2023-11-14T10:06:59.322Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:06:59.322Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF002",
+  "name": "Dr. Abdul Basit",
+  "whatsapp": "03335761878",
+  "department": "DEP001",
+  "email": "AbdulBasit@cust.pk",
+  "password": "b0ab5614644930f6a850fdf021de0989",
+  "createdAt": {
+    "$date": "2023-11-14T10:10:04.612Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:10:04.612Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF003",
+  "name": "Dr. Nayyer Masood",
+  "whatsapp": "03336103920",
+  "department": "DEP001",
+  "email": "Nayyer@cust.pk",
+  "password": "5ce9251b291044b7ea2ae21b93a24125",
+  "createdAt": {
+    "$date": "2023-11-14T10:19:18.324Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:19:18.324Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF004",
+  "name": "Dr. Aamer Nadeem",
+  "whatsapp": "03123456789",
+  "department": "DEP002",
+  "email": "AamerNadeem@cust.pk",
+  "password": "a27f47f9fa2421108970b284179f8a53",
+  "createdAt": {
+    "$date": "2023-11-14T10:43:47.645Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:43:47.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF005",
+  "name": "Dr. Nadeem Anjum",
+  "whatsapp": "03987654321",
+  "department": "DEP002",
+  "email": "NadeemAnjum@cust.pk",
+  "password": "a7ff2925771ce918e4147ffaee057a25",
+  "createdAt": {
+    "$date": "2023-11-14T10:44:56.603Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:44:56.603Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF000",
+  "name": "asdsad",
+  "whatsapp": "asdas",
+  "department": "ASDSAd",
+  "email": "asd@gmial.com",
+  "password": "fab2fc3b46f30fb6e79376e5e7d5b0a0",
+  "createdAt": {
+    "$date": "2023-11-14T10:59:46.092Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-14T10:59:46.092Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF009",
+  "name": "asd",
+  "whatsapp": "asd",
+  "department": "Cs",
+  "email": "as@gmail.com",
+  "password": "d048a7f22589761e7866d2b8ce252fb9",
+  "createdAt": {
+    "$date": "2023-11-25T10:06:10.880Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-25T10:06:10.880Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF999",
+  "name": "Test@case123",
+  "whatsapp": "Test@case123",
+  "department": "DEP002",
+  "email": "Test@case123.com",
+  "password": "Test@case123",
+  "createdAt": {
+    "$date": "2023-12-08T14:51:29.463Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-08T14:51:29.463Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "PROF888",
+  "name": "Azharistan",
+  "whatsapp": "00110011003",
+  "department": "ADP003",
+  "email": "Azhar8work@gmai.com",
+  "password": "600dfb7dbb86d79965cad8770329baa6",
+  "createdAt": {
+    "$date": "2023-12-08T17:07:39.001Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-08T18:52:06.783Z"
+  },
+  "__v": 0
+}]
