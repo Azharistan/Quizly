@@ -22,6 +22,10 @@ const quizSchema = mongoose.Schema(
             type : String,
             required: true,
         }],
+        published : {
+            type : Boolean,
+            default: false
+        }
 
     },
     {

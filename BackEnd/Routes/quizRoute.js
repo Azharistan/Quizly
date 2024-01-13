@@ -1,5 +1,6 @@
-import express from 'express'
+import express, { response } from 'express'
 import { Quiz } from '../models/QuizModel.js';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
@@ -108,6 +109,21 @@ router.delete('/:id', async (request, response)=>{
         console.log(error.message)
         response.status(500).send({message : error.message})
     }
+})
+
+router.post('/publishQuiz/:id', async (request, response)=>{
+    const {id} = request.params;
+    const quiz = await Quiz.findOne({_id:id})
+    const expiresIn  = 60;
+    quiz.published = true
+
+    const update = await Quiz.findByIdAndUpdate(id, quiz)
+    const quizToken = jwt.sign({
+        _id: quiz._id,
+        questions: quiz.questions,
+        marks: quiz.marks
+    }, 'QuizlySecret101', {expiresIn });
+    return response.json({status: 'ok', quiz: quiz, quizToken})
 })
 
 export default router;

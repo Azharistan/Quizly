@@ -41,22 +41,41 @@ app.get('/', (req, res)=>{
 
 //api to decrypt JWT or JsonWebToken
 app.post('/api/token',async (req, res)=>{
-    if(req.body.token){
-        const data = Jwt.decode(req.body.token)
-        
-        if(data._id.includes("PROF")){
-            const instructor = await Instructor.findOne({_id: data._id})
-            return res.json({status: 'ok', instructor: instructor})
-        }else if(data._id.includes("AMD")){
-            return res.json({status: 'ok', admin: data})
-        }else if(data._id.includes("B")){
-            const student = await Student.findOne({_id: data._id})
-            return res.json({status: 'ok', student: student})
-        }
-        return res.json({status: 'nodata'})
+if(req.body.token){
+        Jwt.verify(req.body.token, "QuizlySecret101", async (err,data)=>{
+            if(err){
+                if(err.name === 'TokenExpiredError'){
+
+                    console.log('Sorry Token Expired')
+                    return res.json({status: 'token expired'})
+                }else{
+                    console.log('token verification failed')
+                    return res.json({status: 'No Token'})
+                }
+            } else {
+                
+                if(data._id.includes("PROF")){
+                    const instructor = await Instructor.findOne({_id: data._id})
+                    console.log('a')
+                    return res.json({status: 'ok', instructor: instructor})
+                }else if(data._id.includes("AMD")){
+                    console.log('b')
+                    return res.json({status: 'ok', admin: data})
+                }else if(data._id.includes("B")){
+                    const student = await Student.findOne({_id: data._id})
+                    console.log('c')
+                    return res.json({status: 'ok', student: student})
+                }else{
+
+                    return res.json({status: 'nodata'})
+                }
+
+            }
+        })
+    } else {
+
+        return res.json({status: 'noToken'})
     }
-    console.log('f')
-    return res.json({status: 'noToken'})
     
 })
 
@@ -130,11 +149,13 @@ app.post('/api/joinClass', async (req, res)=>{
 //api to check if a user with given ID/Password exist or not
 app.post('/api/login', async (req, res)=>{
     const pass = (objectHash.MD5(req.body.password))
+    const expireTime = 60*60*24*30;
     if((req.body._id).includes("B")){
         const student = await Student.findOne({
             _id: req.body._id,
             password: pass
         })
+
         
         if(student){
             console.log("Student Found")
@@ -144,8 +165,7 @@ app.post('/api/login', async (req, res)=>{
                 _id: student._id,
                 whatsapp: student.whatsapp,
                 semester: student.semester,
-                classes: student.classes
-                
+                classes: student.classes,
             },'QuizlySecret101'
             )            
             return res.json({status: 'ok', student: student ,token})
@@ -168,7 +188,8 @@ app.post('/api/login', async (req, res)=>{
                 email: instructor.email,
                 _id: instructor._id,
                 whatsapp: instructor.whatsapp,
-                department: instructor.department
+                department: instructor.department,
+                exp: Math.floor(Date.now() / 1000) + (expireTime)
                 
             },'QuizlySecret101'
             )

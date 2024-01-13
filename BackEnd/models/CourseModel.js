@@ -17,7 +17,10 @@ const courseSchema = mongoose.Schema(
         creditHr : {
             type : Number,
             required: true,
-        }
+        },
+        topics: [{
+            subTopics : [{ type :String}]
+        }],
     },
     {
         timestamps: true

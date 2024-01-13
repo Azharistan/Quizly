@@ -1,8 +1,24 @@
-import express from 'express'
+import express, { response } from 'express'
 import { Question } from '../models/QuestionModel.js';
 import { Instructor } from '../models/InstructorModel.js';
 
 const router = express.Router();
+
+router.get('/getByCourse', async (request, response)=>{
+    try{
+    const question = await Question.find({
+        courseID: request.body.courseID
+    });
+    
+
+    return response.status(200).json({
+        count: question.length,
+        question});
+    }catch(error){
+        console.log(error.message)
+        response.status(500).send({message : error.message})
+    }
+})
 
 router.post('/', async (req, res)=>{
     try{
@@ -115,5 +131,7 @@ router.delete('/:id', async (request, response)=>{
         response.status(500).send({message : error.message})
     }
 })
+
+
 
 export default router;
