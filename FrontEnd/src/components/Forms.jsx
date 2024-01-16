@@ -71,6 +71,14 @@ axios.post('http://localhost:5000/api/login', body)
 })
 
 }
+
+const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleLogin(e);
+    }
+  };
+
+
   return (
     loading?
     <div className='container'>
@@ -82,12 +90,12 @@ axios.post('http://localhost:5000/api/login', body)
         <div className='inputs'>
             <div className='input'>
                 <img src={person_icon}/>
-                <input type='text' placeholder="ID"value={_id.toUpperCase()} autoCapitalize="off" onChange={(f)=> setID(f.target.value)}/>
+                <input type='text' autoFocus placeholder="ID"value={_id.toUpperCase()} autoCapitalize="off"  onChange={(f)=> setID(f.target.value)}/>
             </div>
             <div className='input'>
                 <img src={password_icon}/>
                 <label>
-                <input type={showPassword? 'text':'password'} placeholder="Password" value={password} autoCapitalize="off" onChange={(f)=> setPass(f.target.value)}/>
+                <input type={showPassword? 'text':'password'} onKeyPress={handleKeyPress} placeholder="Password" value={password} autoCapitalize="off" onChange={(f)=> setPass(f.target.value)}/>
             </label>
             <button
               type='button'

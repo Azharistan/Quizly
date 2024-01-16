@@ -9,6 +9,7 @@ import ShowStudent from "./stdPages/ShowStudent";
 import EditStudent from "./stdPages/EditStudent";
 import DeleteStudent from "./stdPages/DeleteStudent";
 import StudentSignUp from "./stdPages/StudentSignUp.jsx";
+// import AttemptQuiz from "./stdPages/AttemptQuiz.jsx";
 
 //Instructor Actions
 
@@ -63,6 +64,8 @@ import CreateQuiz from "./instPages/CreateQuiz.jsx";
 import InsClasses from "./components/InsClasses.jsx";
 import Quiz from "./instPages/Quizes.jsx";
 
+import QRPage from "./instPages/QRPage.jsx";
+
 
 
 
@@ -96,6 +99,7 @@ function App() {
         <Route exact path="/students/edit" element={<EditStudent/>} />
         <Route exact path="/students/delete" element={<DeleteStudent/>} />
         <Route exact path="/students/signup" element={<StudentSignUp/>} />
+        {/* <Route exact path="/attempt/:id" element={<AttemptQuiz/>} /> */}
 
 
         <Route exact path = "/departments" element={<HomeDep/>} />
@@ -130,6 +134,8 @@ function App() {
         <Route exact path="/questions" element={<QuizForm />}/>
         <Route exact path="/insclasses" element={<InsClasses />}/>
         <Route exact path="/QuizList" element={<Quiz />}/>
+        <Route exact path="/QRPage/:id" element={<QRPage />}/>
+        
         
 
 

@@ -42,6 +42,7 @@ const CreateQuiz = () => {
   useEffect(() => {
     const storedClass = JSON.parse(localStorage.getItem('class'));
     setSelectClass(storedClass);
+    console.log(storedClass);
     getInstructor();
   }, []);
 
@@ -89,6 +90,8 @@ const CreateQuiz = () => {
     } else {
       setQuestionData({ ...questionData, [name]: value });
     }
+    if(name === 'topic')
+      setTopic(value)
   };
 
   const handleAddOption = () => {
@@ -105,8 +108,6 @@ const CreateQuiz = () => {
         setQuestionData({
           courseID: selectClass.course,
           statement: '',
-          topic: '',
-          subTopic: '',
           options: ['', ''],
           correct: ''
         });
@@ -135,6 +136,17 @@ const CreateQuiz = () => {
     axios.post('http://localhost:5000/quizes', data)
       .then((response) => {
         console.log(response.data);
+        axios.get(`http://localhost:5000/classes/${selectClass._id}`)
+          .then((res)=>{
+            res.data.quizList.push(response.data._id)
+            console.log(res.data)
+            axios.put(`http://localhost:5000/classes/${selectClass._id}`, res.data)
+            .then((response)=>{
+              if (response==='ok')
+                alert("Quiz Created Succesfully!")
+            })
+
+          })
       })
       .catch((error) => {
         console.log(error);
@@ -153,11 +165,16 @@ const CreateQuiz = () => {
     }
   },[topic, subTopic])
 
-  function handleTopicChange(e){
-    setTopic(e.target.value)
-    setSubtopic('')
+  // function handleTopicChange(e){
+  //   setTopic(e.target.value)
+  //   setSubtopic('')
 
-  }
+  // }
+  const handleTopicChange = (e) => {
+    const selectedTopic = e.target.value;
+    setTopic(selectedTopic);
+    setSubtopic('');
+  };
   const filteredSubtopics = topics.find((t) => t.name === topic)?.subtopics || [];
 
   return (
@@ -175,19 +192,38 @@ const CreateQuiz = () => {
                     <div className='modal-content'>
                       <span className='close' onClick={handleNewQuestionClose}>&times;</span>
                       <form className='modal-inputs'>
-                        <label>Select Topic:</label>
-                        <input
+                      <label>Select Topic:</label>
+                        <select
                           name='topic'
                           value={questionData.topic}
                           onChange={handleInputChange}
-                        />
+                        >
+                          <option defaultChecked>Select a topic</option>
+                          {selectClass.topics.map((topic, index) => (
+                            <option key={index} value={topic.name}>
+                              {topic.name}
+                            </option>
+                          ))}
+                        </select>
 
                         <label>Select Subtopic:</label>
-                        <input
+                        <select
                           name='subTopic'
                           value={questionData.subTopic}
-                          onChange={handleInputChange}
-                        />
+                          onChange={
+                            handleInputChange
+                            }
+                        >
+                          <option defaultChecked>Select SubTopic</option>
+                          {topic &&
+                            selectClass.topics
+                              .find((t) => t.name === topic)
+                              .subTopics.map((st, index) => (
+                                <option key={index} value={st}>
+                                  {st}
+                                </option>
+                              ))}
+                        </select>
                         <label>Question Statement:</label>
                         <input
                           type='text'

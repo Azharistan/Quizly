@@ -76,7 +76,7 @@ function CreateClass(){
     <>
   <div className='class-container'>
     <div className='class-header'>
-      <div className='class-text'> Create Class</div>
+      <h1> Create Class</h1>
       <div className='class-underline'></div>
     </div>
     <form className='class-inputs'>

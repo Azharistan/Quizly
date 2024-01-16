@@ -25,7 +25,15 @@ const quizSchema = mongoose.Schema(
         published : {
             type : Boolean,
             default: false
-        }
+        }, 
+        token : {
+            type : String,
+            default : null
+        }, 
+        attemptees : [{
+            regNo : {type : String},
+            marks : {type : Number}            
+        }]
 
     },
     {

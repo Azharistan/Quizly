@@ -28,6 +28,7 @@ const Quiz = () => {
         }
         axios.post('http://localhost:5000/classes/getByInstructor', data)
         .then((res)=>{
+          console.log("Classes = ", res.data.class1)
           setClasses(res.data.class1)
           return(res.data.class1)
         })
@@ -46,7 +47,7 @@ const Quiz = () => {
             promises.push(
               axios.get(`http://localhost:5000/quizes/${q}`)
                 .then((response) => {
-                  var quizNo = 6;
+                  var quizNo = 8;
                   for(let i=0; i<Class.quizList.length; i++) {
                     if(response.data._id === Class.quizList[i])
                       quizNo = i+1
@@ -67,6 +68,7 @@ const Quiz = () => {
           // Remove null values and update the state with the received data
           const filteredQuizData = quizData.filter((item) => item !== null);
           setQuiz(filteredQuizData);
+          console.log(filteredQuizData)
         })
         .catch((error) => {
           console.log(error);
@@ -79,6 +81,7 @@ const Quiz = () => {
       axios.post(`http://localhost:5000/quizes/publishQuiz/${quiz}`)
       .then((response)=>{
         console.log(response.data)
+        window.location.href = (`http://localhost:5173/Qrpage/${response.data.quiz._id}`);
         setClicked(!clicked)
       }).catch((error)=>{
         console.log(error)
@@ -115,17 +118,16 @@ const Quiz = () => {
                 <td className='center'>{q.quizNo}</td>
                 <td className='center'>{q.marks}</td>
                 <td>
+                      {/* <button disabled>published</button>: */}
                   {
                     q.published? 
-                      <button disabled>published</button>:
                       <button onClick={()=>{
                           publishQuiz(q._id)
-                        }
-                      }>publish</button>
+                        }}>publish</button>:null
                   }
                 
                   <button onClick={()=>{
-                      publishQuiz(q._id)
+                      console.log(q)
                     }
                   }>View</button>
                 
