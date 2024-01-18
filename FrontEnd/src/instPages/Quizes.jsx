@@ -118,13 +118,13 @@ const Quiz = () => {
                 <td className='center'>{q.quizNo}</td>
                 <td className='center'>{q.marks}</td>
                 <td>
-                      {/* <button disabled>published</button>: */}
-                  {
-                    q.published? 
+                  
+                    {/* q.published? 
+                      <button disabled>published</button>: */}
                       <button onClick={()=>{
                           publishQuiz(q._id)
-                        }}>publish</button>:null
-                  }
+                        }}>publish</button>
+                  
                 
                   <button onClick={()=>{
                       console.log(q)

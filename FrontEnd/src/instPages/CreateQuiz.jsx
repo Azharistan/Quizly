@@ -102,6 +102,7 @@ const CreateQuiz = () => {
   };
 
   const handleSubmit = () => {
+    console.log(questionData)
     axios.post('http://localhost:5000/questions', questionData)
       .then((response) => {
         setQuestionStats([...questionStats, response.data]);
@@ -174,6 +175,15 @@ const CreateQuiz = () => {
     const selectedTopic = e.target.value;
     setTopic(selectedTopic);
     setSubtopic('');
+    const data = {
+      courseID : selectClass.course,
+      topic: topic,
+      subTopic : subTopic
+    }
+      axios.post('http://localhost:5000/questions/getByCourse', data)
+      .then((response)=>{
+        console.log(response)
+      })
   };
   const filteredSubtopics = topics.find((t) => t.name === topic)?.subtopics || [];
 
@@ -312,7 +322,7 @@ const CreateQuiz = () => {
           </select>
                           </>
                         )}
-                        <label>Question Statement:</label>
+                        <label>Existing Questions :</label>
                         <input
                           type='text'
                           name='statement'

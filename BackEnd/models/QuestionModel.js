@@ -8,11 +8,9 @@ const questionSchema = mongoose.Schema(
         },
         topic : {
             type : String,
-            required: true,
         },
         subTopic : {
             type : String,
-            required: true,
         },
         statement : {
             type : String,

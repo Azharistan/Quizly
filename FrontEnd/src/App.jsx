@@ -9,7 +9,7 @@ import ShowStudent from "./stdPages/ShowStudent";
 import EditStudent from "./stdPages/EditStudent";
 import DeleteStudent from "./stdPages/DeleteStudent";
 import StudentSignUp from "./stdPages/StudentSignUp.jsx";
-// import AttemptQuiz from "./stdPages/AttemptQuiz.jsx";
+import AttemptQuiz from "./stdPages/AttemptQuiz.jsx";
 
 //Instructor Actions
 
@@ -99,7 +99,7 @@ function App() {
         <Route exact path="/students/edit" element={<EditStudent/>} />
         <Route exact path="/students/delete" element={<DeleteStudent/>} />
         <Route exact path="/students/signup" element={<StudentSignUp/>} />
-        {/* <Route exact path="/attempt/:id" element={<AttemptQuiz/>} /> */}
+        <Route exact path="/attempt/:id" element={<AttemptQuiz/>} />
 
 
         <Route exact path = "/departments" element={<HomeDep/>} />
