@@ -27,11 +27,11 @@ useEffect(()=>{
             .then((response)=>{
                 if(response.data.instructor){
                     setLoading(false)
-                    window.location.href = ("/inspage")
+                    window.location.href = ("https://quizly-frontend.vercel.app/inspage")
                 }
                 else if(response.data.student){
                     setLoading(false)
-                    window.location.href = ("/stdpage")
+                    window.location.href = ("https://quizly-frontend.vercel.app/stdpage")
                 }
             }).catch((error)=>{
                 setLoading(false)
