@@ -50,7 +50,7 @@ import InsPage from "./components/InsPage.jsx";
 import JoinClass from "./components/JoinClass.jsx";
 
 
-import Admin from "./components/admin";
+import Admin from "./components/Admin.jsx";
 import Create from "./components/Create";
 
 import Testlogin from "./components/testlogin.jsx";
