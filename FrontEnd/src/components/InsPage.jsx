@@ -12,9 +12,9 @@ const InsPage=() => {
     useEffect(()=>{
         if(!token){
             alert('You are not logged in')
-            window.location.href = ('http://localhost:5173/login')
+            window.location.href = ('/login')
         }else{
-            axios.post('http://localhost:5000/api/token', data)
+            axios.post('https://quizly-nine.vercel.app/api/token', data)
             .then((response)=>{
                 if(response.data.status === 'ok'){
                     setProf(response.data.instructor)
@@ -27,7 +27,7 @@ const InsPage=() => {
     
     function handleLogout(){
         localStorage.removeItem('token')
-        window.location.href = ('http://localhost:5173/')
+        window.location.href = ('/')
     }
 
   return (
