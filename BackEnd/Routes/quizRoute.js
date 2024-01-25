@@ -1,5 +1,8 @@
-import express from 'express'
+import express, { response } from 'express'
 import { Quiz } from '../models/QuizModel.js';
+import jwt from 'jsonwebtoken';
+import Jwt from "jsonwebtoken";
+
 
 const router = express.Router();
 
@@ -108,6 +111,63 @@ router.delete('/:id', async (request, response)=>{
         console.log(error.message)
         response.status(500).send({message : error.message})
     }
+})
+
+router.post('/publishQuiz/:id', async (request, response)=>{
+    const {id} = request.params;
+    const quiz = await Quiz.findOne({_id:id})
+    const expiresIn  = 300;
+    quiz.published = true
+
+    const quizToken = jwt.sign({
+        _id: quiz._id,
+        questions: quiz.questions,
+        marks: quiz.marks
+    }, 'QuizlySecret101', {expiresIn });
+    quiz.token = quizToken
+    const update = await Quiz.findByIdAndUpdate(id, quiz)
+    return response.json({status: 'ok', quiz: quiz, quizToken})
+})
+
+router.get('/attempt/:id', async (request, response)=>{
+    try {
+
+        console.log('asd')
+        
+        const {id} = request.params;
+        const quiz = await Quiz.findOne({_id:id})
+        // if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
+        // {
+        //     return response.json({status: 'Already attempted'})
+        // }
+        // else
+        {
+            const obj = {
+                regNo: request.body.studentID,
+            }
+            quiz.attemptees.push(obj)
+            const update = await Quiz.findByIdAndUpdate({_id: id}, quiz)
+        }
+
+    Jwt.verify(quiz.token, "QuizlySecret101", async (err, data)=>{
+        if(err){
+            if(err.name === 'TokenExpiredError'){
+
+                console.log('Sorry Token Expired')
+                return response.json({status: 'token expired'})
+            }else{
+                console.log('token verification failed')
+                return response.json({status: 'No Token'})
+            }
+        } else {
+            return response.json({status: 'ok', data: data})
+        }
+    })
+}
+catch(error){
+    console.log(error.message)
+    response.status(500).send({message : error.message})
+}
 })
 
 export default router;

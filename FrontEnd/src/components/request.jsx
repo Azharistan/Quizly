@@ -10,8 +10,7 @@ const Request = () => {
   var courseID
   var to;
 
-  const handleDelete = (event) =>{
-    event.preventDefault()
+  const handleDelete = () =>{
     const apprv = {
     from,
     detail, 

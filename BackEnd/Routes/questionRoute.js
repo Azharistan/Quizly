@@ -1,8 +1,49 @@
-import express from 'express'
+import express, { response } from 'express'
 import { Question } from '../models/QuestionModel.js';
 import { Instructor } from '../models/InstructorModel.js';
 
 const router = express.Router();
+
+router.post('/getByCourse', async (request, response)=>{
+    try{
+        console.log(request.body)
+
+        if(request.body.courseID && 
+           request.body.topic &&
+           request.body.subTopic ){
+            const question = await Question.find({
+                courseID: request.body.courseID,
+                topic : request.body.topic,
+                subTopic : request.body.subTopic
+           })
+           return response.status(200).json({
+            count: question.length,
+            question});
+        }
+        else if(request.body.courseID && 
+            request.body.topic) {
+                const question = await Question.find({
+                courseID: request.body.courseID,
+                topic : request.body.topic})
+                return response.status(200).json({
+                    count: question.length,
+                    question});
+        }
+        else if(request.body.courseID){
+            const question = await Question.find({
+                courseID: request.body.courseID})
+                return response.status(200).json({
+                    count: question.length,
+                    question});
+        }
+    
+
+    
+    }catch(error){
+        console.log(error.message)
+        response.status(500).send({message : error.message})
+    }
+})
 
 router.post('/', async (req, res)=>{
     try{
@@ -10,7 +51,7 @@ router.post('/', async (req, res)=>{
             !req.body.courseID ||
             !req.body.statement ||
             !req.body.topic ||
-            !req.body.subTopic ||
+            !req.body.options ||
             !req.body.correct 
         ) {
             return res.status(400).send({
@@ -20,7 +61,7 @@ router.post('/', async (req, res)=>{
 
         // const NQ = await Question.find({})
 
-        console.dir(Question.find({}))
+        // console.dir(Question.find({}))
 
         const newQuestion = {
             courseID: req.body.courseID,
@@ -115,5 +156,7 @@ router.delete('/:id', async (request, response)=>{
         response.status(500).send({message : error.message})
     }
 })
+
+
 
 export default router;

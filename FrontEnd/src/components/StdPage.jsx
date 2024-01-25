@@ -13,7 +13,7 @@ const StdPage=() => {
         useEffect(()=>{
             if(!token){          
                 alert('you are not logged in')
-                window.location.href = ('http://localhost:5173/login')
+                window.location.href = ('http://localhost:5173/')
             }else{
                 axios.post('http://localhost:5000/api/token', data)
                 .then((response)=>{
@@ -31,7 +31,7 @@ const StdPage=() => {
         
         function handleLogout (){
             localStorage.removeItem('token')
-            window.location.href = ('http://localhost:5173/login')
+            window.location.href = ('http://localhost:5173/')
     }
     
   return (
@@ -55,7 +55,7 @@ const StdPage=() => {
         <Link to = {std? `/JoinedClasses`: '/StdPage'} className="Stubutton">      
             Classes
         </Link>
-        <a href="/login" className="InsButton" onClick={handleLogout}>
+        <a href="/" className="InsButton" onClick={handleLogout}>
             logout
         </a>
         </div>

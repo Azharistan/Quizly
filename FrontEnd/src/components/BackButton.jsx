@@ -6,7 +6,7 @@ import "./style/Backbutton.css"
 const BackButton = () => {
   return (
     <div>
-        <Link to={'/'} className='back-button'>
+        <Link to={-1} className='back-button'>
             <BsArrowLeft className='text-2xl'/>
         </Link>      
     </div>

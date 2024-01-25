@@ -59,7 +59,8 @@ const InsClasses = () => {
           courseName: courseResponse.data.name,
           course: courseResponse.data._id,
           section: Class.section,
-          stdList: Class.stdList
+          stdList: Class.stdList,
+          topics: courseResponse.data.topics
         }
       }).catch((error)=>{
         console.log(error)

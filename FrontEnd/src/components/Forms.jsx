@@ -1,5 +1,5 @@
 import "./style/Forms.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import person_icon from '../Assets/person.png';
@@ -9,9 +9,40 @@ import axios from "axios";
 
 function LogIn(){
     const [_id, setID] = useState('');
+    const [loading, setLoading] = useState(false);
     const [password, setPass] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 const Navigate = useNavigate()
+
+useEffect(()=>{
+    setLoading(true)
+    const token = localStorage.getItem('token')
+    if(token){
+        
+        const data = {
+            token
+        }
+
+        axios.post('http://localhost:5000/api/token', data)
+            .then((response)=>{
+                if(response.data.instructor){
+                    setLoading(false)
+                    window.location.href = ("http://localhost:5173/inspage")
+                }
+                else if(response.data.student){
+                    setLoading(false)
+                    window.location.href = ("http://localhost:5173/stdpage")
+                }
+            }).catch((error)=>{
+                setLoading(false)
+
+                console.log(error)
+            })
+        }
+    
+    console.log(token)
+
+},[])
 
 async function handleLogin(event){
 
@@ -40,7 +71,16 @@ axios.post('http://localhost:5000/api/login', body)
 })
 
 }
+
+const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleLogin(e);
+    }
+  };
+
+
   return (
+    loading?
     <div className='container'>
         <div className='header'>
             <div className='text'> Log In</div>
@@ -50,12 +90,12 @@ axios.post('http://localhost:5000/api/login', body)
         <div className='inputs'>
             <div className='input'>
                 <img src={person_icon}/>
-                <input type='text' placeholder="ID"value={_id.toUpperCase()} autoCapitalize="off" onChange={(f)=> setID(f.target.value)}/>
+                <input type='text' autoFocus placeholder="ID"value={_id.toUpperCase()} autoCapitalize="off"  onChange={(f)=> setID(f.target.value)}/>
             </div>
             <div className='input'>
                 <img src={password_icon}/>
                 <label>
-                <input type='password' placeholder="Password" value={password} autoCapitalize="off" onChange={(f)=> setPass(f.target.value)}/>
+                <input type={showPassword? 'text':'password'} onKeyPress={handleKeyPress} placeholder="Password" value={password} autoCapitalize="off" onChange={(f)=> setPass(f.target.value)}/>
             </label>
             <button
               type='button'
@@ -75,7 +115,7 @@ axios.post('http://localhost:5000/api/login', body)
         <div className='submit-container'>
             <button className="submit" onClick={ handleLogin}>Login</button>
         </div>
-    </div>
+    </div> : <div><h1>Please wait</h1></div>
   )
 }
 
