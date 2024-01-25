@@ -2,7 +2,7 @@ import "./style/Forms.css";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import person_icon from '../Assets/person.png';
+import person_icon from '../assets/person.png';
 import password_icon from '../assets/password.png';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
