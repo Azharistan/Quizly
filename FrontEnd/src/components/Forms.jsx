@@ -27,11 +27,11 @@ useEffect(()=>{
             .then((response)=>{
                 if(response.data.instructor){
                     setLoading(false)
-                    window.location.href = ("https://quizly-frontend.vercel.app/inspage")
+                    window.location.href = ("/inspage")
                 }
                 else if(response.data.student){
                     setLoading(false)
-                    window.location.href = ("https://quizly-frontend.vercel.app/stdpage")
+                    window.location.href = ("/stdpage")
                 }
             }).catch((error)=>{
                 setLoading(false)
@@ -57,11 +57,11 @@ axios.post('https://quizly-nine.vercel.app/api/login', body)
     if(response.data.status === 'ok'){
         localStorage.setItem('token', response.data.token)
         if(_id.includes("PROF")){
-            Navigate('https://quizly-frontend.vercel.app/inspage')
+            Navigate('/inspage')
         }else if(_id.includes("ADM")){
-            Navigate('https://quizly-frontend.vercel.app/create')
+            Navigate('/create')
         }else{
-            Navigate('https://quizly-frontend.vercel.app/StdPage')    
+            Navigate('/StdPage')    
         }
     }else{
         alert('please check id or password')
