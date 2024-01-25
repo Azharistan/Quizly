@@ -27,11 +27,11 @@ useEffect(()=>{
             .then((response)=>{
                 if(response.data.instructor){
                     setLoading(false)
-                    window.location.href = ("http://localhost:5173/inspage")
+                    window.location.href = ("/inspage")
                 }
                 else if(response.data.student){
                     setLoading(false)
-                    window.location.href = ("http://localhost:5173/stdpage")
+                    window.location.href = ("/stdpage")
                 }
             }).catch((error)=>{
                 setLoading(false)
@@ -52,7 +52,7 @@ async function handleLogin(event){
         _id,
         password
     }
-axios.post('http://localhost:5000/api/login', body)
+axios.post('https://quizly-nine.vercel.app/api/login', body)
 .then((response)=>{
     if(response.data.status === 'ok'){
         localStorage.setItem('token', response.data.token)
