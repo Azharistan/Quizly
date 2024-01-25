@@ -13,9 +13,9 @@ const ShowStudent = () => {
     }
     if(!token){          
         alert('you are not logged in')
-        window.location.href = ('http://localhost:5173/login')
+        window.location.href = ('/')
     }else{
-        axios.post('http://localhost:5000/api/token', data)
+        axios.post('https://quizly-nine.vercel.app/api/token', data)
         .then((response)=>{
             if(response.data.status === 'ok'){
                 setStudents(response.data.student)
