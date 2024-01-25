@@ -11,10 +11,10 @@ const Admin = () => {
 
     const Navigate = useNavigate()
     const handleLogin = () =>{
-        axios.get(`http://localhost:5000/admins/${id}`)
+        axios.get(`https://quizly-nine.vercel.app/admins/${id}`)
             .then((response)=>{
                 if((pass)===response.data.pass)
-                    {Navigate('/create')}
+                    {Navigate('https://quizly-frontend.vercel.app/create')}
                 else{
                     alert('ID or Password may be incorrect')
                 }

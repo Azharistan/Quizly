@@ -12,7 +12,7 @@ const InsPage=() => {
     useEffect(()=>{
         if(!token){
             alert('You are not logged in')
-            window.location.href = ('/login')
+            window.location.href = ('https://quizly-frontend.vercel.app/login')
         }else{
             axios.post('https://quizly-nine.vercel.app/api/token', data)
             .then((response)=>{
@@ -27,26 +27,26 @@ const InsPage=() => {
     
     function handleLogout(){
         localStorage.removeItem('token')
-        window.location.href = ('/')
+        window.location.href = ('https://quizly-frontend.vercel.app/')
     }
 
   return (
     <div className="StuContainer">
         <h1>Welcome {prof? prof.name:''}</h1>
-        <Link to = {prof? `/instructors/info`: '/insPage'} className="Stubutton">                         
+        <Link to = {prof? `https://quizly-frontend.vercel.app/instructors/info`: 'https://quizly-frontend.vercel.app/insPage'} className="Stubutton">                         
                 View profile
             </Link>
 
-            <Link to = {prof? `/instructors/edit`: '/insPage'} className="Stubutton">                         
+            <Link to = {prof? `https://quizly-frontend.vercel.app/instructors/edit`: 'https://quizly-frontend.vercel.app/insPage'} className="Stubutton">                         
                 Edit Profile
             </Link>
-            <Link to = {prof? `/classes/create`: '/insPage'} className="Stubutton">                         
+            <Link to = {prof? `https://quizly-frontend.vercel.app/classes/create`: 'https://quizly-frontend.vercel.app/insPage'} className="Stubutton">                         
             Create Class
             </Link>
-            <Link to = {prof? `/insclasses`: '/insPage'} className="Stubutton">                         
+            <Link to = {prof? `https://quizly-frontend.vercel.app/insclasses`: 'https://quizly-frontend.vercel.app/insPage'} className="Stubutton">                         
             Classes
             </Link>
-            <Link to = {prof? `/QuizList`: '/insPage'} className="Stubutton">                         
+            <Link to = {prof? `https://quizly-frontend.vercel.app/QuizList`: 'https://quizly-frontend.vercel.app/insPage'} className="Stubutton">                         
             Quizes
             </Link>
             

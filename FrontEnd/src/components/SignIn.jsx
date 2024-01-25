@@ -13,10 +13,10 @@ const SignIn = () => {
         event.preventDefault()
         if(id.includes("BCS")){
 
-            axios.get(`http://localhost:5000/students/${id}`)
+            axios.get(`https://quizly-nine.vercel.app/students/${id}`)
             .then((response)=>{
                 if(objectHash.MD5(pass)==response.data.password)
-                {Navigate('/students')}
+                {Navigate('https://quizly-frontend.vercel.app/students')}
                 else{
                     alert('ID or Password may be incorrect')
                 }
@@ -26,10 +26,10 @@ const SignIn = () => {
             })
         }
         else if(id.includes("PROF")){
-            axios.get(`http://localhost:5000/instructors/${id}`)
+            axios.get(`https://quizly-nine.vercel.app/instructors/${id}`)
             .then((response)=>{
                 if(objectHash.MD5(pass)==response.data.password)
-                {Navigate('/instructors')}
+                {Navigate('https://quizly-frontend.vercel.app/instructors')}
                 else{
                     alert('ID or Password may be incorrect')
                 }

@@ -13,9 +13,9 @@ const JoinClass = () => {
         function getStd(){
           if(!token){          
             alert('you are not logged in')
-            window.location.href = ('http://localhost:5173/login')
+            window.location.href = ('https://quizly-frontend.vercel.app/login')
         }else{
-            axios.post('http://localhost:5000/api/token', data)
+            axios.post('https://quizly-nine.vercel.app/api/token', data)
             .then((response)=>{
                 if(response.data.status === 'ok'){
                     setStd(response.data.student)
@@ -36,7 +36,7 @@ const JoinClass = () => {
   
   useEffect(()=>{
     axios
-      .get('http://localhost:5000/classes')
+      .get('https://quizly-nine.vercel.app/classes')
       .then((response) =>{ 
         fetchClassDetails(response.data.class1)
       })
@@ -47,8 +47,8 @@ const JoinClass = () => {
 
   const fetchClassDetails = (classs)=>{
     const promises = classs.map((Class) => {
-      const coursePromise = axios.get(`http://localhost:5000/courses/${Class.courseID}`)
-      const instructorPromise = axios.get(`http://localhost:5000/instructors/${Class.instructor}`)
+      const coursePromise = axios.get(`https://quizly-nine.vercel.app/courses/${Class.courseID}`)
+      const instructorPromise = axios.get(`https://quizly-nine.vercel.app/instructors/${Class.instructor}`)
       return Promise.all([coursePromise,instructorPromise])
       .then((responses)=>{
         const [courseResponse, instructorResponse] = responses
@@ -94,7 +94,7 @@ useEffect(()=>{
       class_ID
     )
 {
-  axios.post(`http://localhost:5000/approvals`, data)
+  axios.post(`https://quizly-nine.vercel.app/approvals`, data)
     .then((response)=>{
       if(response.status===201){
         const newclass = {
@@ -103,7 +103,7 @@ useEffect(()=>{
           classID: class_ID._id
         }
         std.classes.push(newclass)
-        axios.put(`http://localhost:5000/students/${std._id}`, std)
+        axios.put(`https://quizly-nine.vercel.app/students/${std._id}`, std)
           .then((res)=>{
             localStorage.removeItem('token')
             localStorage.setItem('token', res.data.token)

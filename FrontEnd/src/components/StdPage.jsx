@@ -13,9 +13,9 @@ const StdPage=() => {
         useEffect(()=>{
             if(!token){          
                 alert('you are not logged in')
-                window.location.href = ('http://localhost:5173/')
+                window.location.href = ('https://quizly-frontend.vercel.app/')
             }else{
-                axios.post('http://localhost:5000/api/token', data)
+                axios.post('https://quizly-nine.vercel.app/api/token', data)
                 .then((response)=>{
                     if(response.data.status === 'ok'){
                         setStd(response.data.student)
@@ -31,31 +31,31 @@ const StdPage=() => {
         
         function handleLogout (){
             localStorage.removeItem('token')
-            window.location.href = ('http://localhost:5173/')
+            window.location.href = ('https://quizly-frontend.vercel.app')
     }
     
   return (
         <div className="StuContainer">
         <h1>Wellcome {std? std.name:''}</h1>
         
-            <Link to = {std? `/students/info`: '/StdPage'} className="Stubutton">                         
+            <Link to = {std? `https://quizly-frontend.vercel.app/students/info`: 'https://quizly-frontend.vercel.app/StdPage'} className="Stubutton">                         
                 View Profile
             </Link>
 
-            <Link to = {std? `/students/edit`: '/StdPage'} className="Stubutton">                         
+            <Link to = {std? `https://quizly-frontend.vercel.app/students/edit`: 'https://quizly-frontend.vercel.app/StdPage'} className="Stubutton">                         
                 Edit Profile
             </Link>
-            <Link to = {std? `/joinClass`: '/StdPage'} className="Stubutton">                         
+            <Link to = {std? `https://quizly-frontend.vercel.app/joinClass`: 'https://quizly-frontend.vercel.app/StdPage'} className="Stubutton">                         
                 Join Class
             </Link>
         
         <a href="" className="InsButton">
             View Results
         </a>
-        <Link to = {std? `/JoinedClasses`: '/StdPage'} className="Stubutton">      
+        <Link to = {std? `https://quizly-frontend.vercel.app/JoinedClasses`: 'https://quizly-frontend.vercel.app/StdPage'} className="Stubutton">      
             Classes
         </Link>
-        <a href="/" className="InsButton" onClick={handleLogout}>
+        <a href="https://quizly-frontend.vercel.app/" className="InsButton" onClick={handleLogout}>
             logout
         </a>
         </div>
