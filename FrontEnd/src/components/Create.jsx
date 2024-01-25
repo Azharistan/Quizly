@@ -1,4 +1,4 @@
-import "./Style/Home.css";
+import "./style/Home.css";
  
 const Create=() => {
   return (
