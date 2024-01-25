@@ -23,7 +23,7 @@ useEffect(()=>{
             token
         }
 
-        axios.post('http://localhost:5000/api/token', data)
+        axios.post('https://quizly-nine.vercel.app/api/token', data)
             .then((response)=>{
                 if(response.data.instructor){
                     setLoading(false)
