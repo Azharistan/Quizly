@@ -57,11 +57,11 @@ axios.post('https://quizly-nine.vercel.app/api/login', body)
     if(response.data.status === 'ok'){
         localStorage.setItem('token', response.data.token)
         if(_id.includes("PROF")){
-            Navigate('/inspage')
+            Navigate('https://quizly-frontend.vercel.app/inspage')
         }else if(_id.includes("ADM")){
-            Navigate('/create')
+            Navigate('https://quizly-frontend.vercel.app/create')
         }else{
-            Navigate('/StdPage')    
+            Navigate('https://quizly-frontend.vercel.app/StdPage')    
         }
     }else{
         alert('please check id or password')
