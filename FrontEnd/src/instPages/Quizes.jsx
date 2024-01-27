@@ -16,7 +16,7 @@ const Quiz = () => {
       alert('You are not logged in')
       window.location.href = ('http://localhost:5173/login')
     }else{
-      axios.post('http://localhost:5000/api/token', data)
+      axios.post('https://quizly-nine.vercel.app/api/token', data)
       .then((response)=>{
         if(response.data.status === 'ok'){
           setProf(response.data.instructor)
@@ -26,7 +26,7 @@ const Quiz = () => {
         const data = {
           _id: instructor._id
         }
-        axios.post('http://localhost:5000/classes/getByInstructor', data)
+        axios.post('https://quizly-nine.vercel.app/classes/getByInstructor', data)
         .then((res)=>{
           console.log("Classes = ", res.data.class1)
           setClasses(res.data.class1)
@@ -45,7 +45,7 @@ const Quiz = () => {
         if (Class.quizList.length !== 0) {
           Class.quizList.forEach((q) => {
             promises.push(
-              axios.get(`http://localhost:5000/quizes/${q}`)
+              axios.get(`https://quizly-nine.vercel.app/quizes/${q}`)
                 .then((response) => {
                   var quizNo = 8;
                   for(let i=0; i<Class.quizList.length; i++) {
@@ -78,7 +78,7 @@ const Quiz = () => {
 
   const publishQuiz = (quiz)=>{
     if(quiz){
-      axios.post(`http://localhost:5000/quizes/publishQuiz/${quiz}`)
+      axios.post(`https://quizly-nine.vercel.app/quizes/publishQuiz/${quiz}`)
       .then((response)=>{
         console.log(response.data)
         window.location.href = (`http://localhost:5173/Qrpage/${response.data.quiz._id}`);

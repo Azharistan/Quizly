@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(()=>{
     setLoading(true);
     axios
-      .get('http://localhost:5000/students')
+      .get('https://quizly-nine.vercel.app/students')
       .then((response) =>{ 
         setStudents(response.data.students)
         setLoading(false);

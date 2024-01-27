@@ -37,7 +37,7 @@ const shuffleArray = (array) => {
         window.location.href = 'http://localhost:5173/';
       } else {
         axios
-          .post('http://localhost:5000/api/token', data)
+          .post('https://quizly-nine.vercel.app/api/token', data)
           .then((response) => {
             if (response.data.status === 'ok') {
               setStd(response.data.student);
@@ -51,7 +51,7 @@ const shuffleArray = (array) => {
   
     useEffect(() => {
       axios
-        .get(`http://localhost:5000/quizes/attempt/${id}`)
+        .get(`https://quizly-nine.vercel.app/quizes/attempt/${id}`)
         .then((response) => {
           console.log(response.data.status);
           return response.data.data.questions;
@@ -59,7 +59,7 @@ const shuffleArray = (array) => {
         .then((questions) =>
           Promise.all(
             shuffleArray(questions).map((questionId) =>
-              axios.get(`http://localhost:5000/questions/${questionId}`).then((response) => ({
+              axios.get(`https://quizly-nine.vercel.app/questions/${questionId}`).then((response) => ({
                 statement: response.data.statement,
                 options: shuffleArray(response.data.options),
                 _id : response.data._id

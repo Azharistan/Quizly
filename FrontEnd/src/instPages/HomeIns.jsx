@@ -10,7 +10,7 @@ const HomeIns = () => {
 
   useEffect(()=>{
     axios
-      .get('http://localhost:5000/instructors')
+      .get('https://quizly-nine.vercel.app/instructors')
       .then((response) =>{ 
         setinstructors(response.data.instructors)
         console.log(response.data.instructors)

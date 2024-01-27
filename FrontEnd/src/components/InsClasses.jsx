@@ -15,7 +15,7 @@ const InsClasses = () => {
         function getInstructor(){
           if(!token){          
             alert('you are not logged in')
-            window.location.href = ('https://quizly-frontend.vercel.app/login')
+            window.location.href = ('/login')
         }else{
             axios.post('https://quizly-nine.vercel.app/api/token', data)
             .then((response)=>{
@@ -80,7 +80,7 @@ const InsClasses = () => {
     const st = JSON.stringify(selected)
 
     localStorage.setItem("class", st)
-    window.location.href = ('https://quizly-frontend.vercel.app/question')
+    window.location.href = ('/question')
   }
 
   return (

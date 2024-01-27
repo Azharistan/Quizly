@@ -14,16 +14,16 @@ const ShowInstuctor = () => {
     }
     if(!token){
       alert("You are not logged in")
-      window.location.href= ('http://localhost:5173/login')
+      window.location.href= ('/')
     }else{
-      axios.post('http://localhost:5000/api/token', data)
+      axios.post('https://quizly-nine.vercel.app/api/token', data)
       .then((response)=>{
         if(response.data.status === 'ok'){
           setinstructors(response.data.instructor)
           return(response.data.instructor)
         }
       }).then((res)=>{
-        axios.get(`http://localhost:5000/departments/${res.department}`)
+        axios.get(`https://quizly-nine.vercel.app/departments/${res.department}`)
         .then((response) => {    
             setDep(response.data.name)
           })

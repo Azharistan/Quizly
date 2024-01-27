@@ -52,7 +52,7 @@ const CreateQuiz = () => {
       alert('You are not logged in');
       window.location.href = 'http://localhost:5173/login';
     } else {
-      axios.post('http://localhost:5000/api/token', { token })
+      axios.post('https://quizly-nine.vercel.app/api/token', { token })
         .then((response) => {
           if (response.data.status === 'ok') {
             setInstructor(response.data.instructor);
@@ -103,7 +103,7 @@ const CreateQuiz = () => {
 
   const handleSubmit = () => {
     console.log(questionData)
-    axios.post('http://localhost:5000/questions', questionData)
+    axios.post('https://quizly-nine.vercel.app/questions', questionData)
       .then((response) => {
         setQuestionStats([...questionStats, response.data]);
         setQuestionData({
@@ -134,14 +134,14 @@ const CreateQuiz = () => {
       questions: updatedQuestions
     };
 
-    axios.post('http://localhost:5000/quizes', data)
+    axios.post('https://quizly-nine.vercel.app/quizes', data)
       .then((response) => {
         console.log(response.data);
-        axios.get(`http://localhost:5000/classes/${selectClass._id}`)
+        axios.get(`https://quizly-nine.vercel.app/classes/${selectClass._id}`)
           .then((res)=>{
             res.data.quizList.push(response.data._id)
             console.log(res.data)
-            axios.put(`http://localhost:5000/classes/${selectClass._id}`, res.data)
+            axios.put(`https://quizly-nine.vercel.app/classes/${selectClass._id}`, res.data)
             .then((response)=>{
               if (response==='ok')
                 alert("Quiz Created Succesfully!")
@@ -157,7 +157,7 @@ const CreateQuiz = () => {
 
   useEffect(()=>{
     if(!(topic)){
-      axios.get(`http://localhost:5000/questions/getByCourse`, {courseID : selectClass.courseID})
+      axios.get(`https://quizly-nine.vercel.app/questions/getByCourse`, {courseID : selectClass.courseID})
       .then(async (response)=>{
         await setQuestionList(response.data.question)
         console.log(response.data.question)
@@ -180,7 +180,7 @@ const CreateQuiz = () => {
       topic: topic,
       subTopic : subTopic
     }
-      axios.post('http://localhost:5000/questions/getByCourse', data)
+      axios.post('https://quizly-nine.vercel.app/questions/getByCourse', data)
       .then((response)=>{
         console.log(response)
       })

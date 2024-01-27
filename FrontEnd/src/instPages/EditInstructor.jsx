@@ -19,7 +19,7 @@ const EditInstuctor = () => {
 
   const navigate = useNavigate();
   useEffect(()=>{
-    axios.post(`http://localhost:5000/api/token`, tt)
+    axios.post(`https://quizly-nine.vercel.app/api/token`, tt)
     .then((response)=>{
       set_id(response.data.instructor._id);
       setName(response.data.instructor.name)
@@ -43,7 +43,7 @@ const EditInstuctor = () => {
       department
     };
     axios
-    .put(`http://localhost:5000/instructors/${_id}`, data)
+    .put(`https://quizly-nine.vercel.app/instructors/${_id}`, data)
     .then((response) =>{
       if(response.data.token){
         token = response.data.token
@@ -54,7 +54,7 @@ const EditInstuctor = () => {
       }else{
         alert('Something went wrong please try again')
       }
-      axios.post('http://localhost:5000/api/token', tt)
+      axios.post('https://quizly-nine.vercel.app/api/token', tt)
       .then((res)=>{
         set_id(res.data.instructor._id)
         setName(res.data.instructor.name)

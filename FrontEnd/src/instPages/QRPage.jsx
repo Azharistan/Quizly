@@ -10,7 +10,7 @@ const QRPage = () => {
     const [link, setLink] = useState('');
     console.log(id)
     useEffect(()=>{
-        axios.get(`http://localhost:5000/quizes/attempt/${id}`)
+        axios.get(`https://quizly-nine.vercel.app/quizes/attempt/${id}`)
         .then((response)=>{
             console.log(response)
             setloading(true)

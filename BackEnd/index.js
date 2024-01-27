@@ -219,7 +219,7 @@ app.post('/api/login', async (req, res)=>{
             },'QuizlySecret101'
             )
             
-            return res.json({status: 'ok', admin: token})
+            return res.json({status: 'ok', admin, token})
         }else{
             return res.json({status: 'error', admin: false})
             

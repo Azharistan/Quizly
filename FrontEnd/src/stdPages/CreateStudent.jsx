@@ -24,7 +24,7 @@ const CreateStudent = () => {
       return alert("Invalid Registraion No.")
     }
     
-    axios.get(`http://localhost:5000/students/${_id}`)
+    axios.get(`https://quizly-nine.vercel.app/students/${_id}`)
     .then((response)=>{
       console.log("Data",response.data,"End")
       if(response.data)
@@ -54,7 +54,7 @@ const CreateStudent = () => {
     };
     
     axios
-      .post('http://localhost:5000/students', data)
+      .post('https://quizly-nine.vercel.app/students', data)
       .then(() =>{
         console.log(data)
         navigate('/login');
