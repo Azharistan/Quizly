@@ -64,9 +64,11 @@ if(req.body.token){
                     const instructor = await Instructor.findOne({_id: data._id})
                     console.log('a')
                     return res.json({status: 'ok', instructor: instructor})
-                }else if(data._id.includes("AMD")){
+                }else if(data._id.includes("ADM")){
+                    const admin = await Admin.findOne({_id: data._id})
+
                     console.log('b')
-                    return res.json({status: 'ok', admin: data})
+                    return res.json({status: 'ok', admin: admin})
                 }else if(data._id.includes("B")){
                     const student = await Student.findOne({_id: data._id})
                     console.log('c')
@@ -207,14 +209,17 @@ app.post('/api/login', async (req, res)=>{
     }
     else if((req.body._id).includes("ADM")){
         console.log("Going Admin")
+        console.log(req.body._id)
+        console.log(req.body.password)
         const admin = await Admin.findOne({
             _id: req.body._id,
-            password: req.body.password
+            pass: req.body.password
         })
+        console.log(admin)
         
-        if(Admin){
+        if(admin){
             const token = Jwt.sign({
-                _id: Admin._id,
+                _id: admin._id,
                 
             },'QuizlySecret101'
             )
