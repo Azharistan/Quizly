@@ -136,11 +136,11 @@ router.get('/attempt/:id', async (request, response)=>{
         
         const {id} = request.params;
         const quiz = await Quiz.findOne({_id:id})
-        // if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
-        // {
-        //     return response.json({status: 'Already attempted'})
-        // }
-        // else
+        if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
+        {
+            return response.json({status: 'Already attempted'})
+        }
+        else
         {
             const obj = {
                 regNo: request.body.studentID,

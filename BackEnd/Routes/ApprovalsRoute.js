@@ -76,6 +76,38 @@ router.get('/:id', async (request,response )=>{
     }
 })
 
+router.get('/byuser/:id', async (request,response )=>{
+    try{
+        const { id } = request.params;
+
+        if(id.includes("PROF")){
+
+            const approvals = await Approvals.find(
+                {
+                    to : id
+                }
+                );
+                
+                return response.status(200).json({
+                    count: approvals.length,
+                    approvals});
+        }
+        else if(id.includes("ADM")){
+
+            const approvals = await Approvals.find({});
+                
+                return response.status(200).json({
+                    count: approvals.length,
+                    approvals});
+        }
+        else
+            return response.status(404)
+    }catch(error){
+        console.log(error.message)
+        response.status(500).send({message : error.message})
+    }
+})
+
 router.put('/:id', async (request, response)=>{
     try{
         if(
