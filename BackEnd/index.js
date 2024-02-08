@@ -1,5 +1,5 @@
 import express, { response } from "express";
-import { PORT, MONGODB_URL } from './config.js';
+import {PORT, MongoDBURL} from "./config.js";
 import mongoose from "mongoose";
 import objectHash from "object-hash";
 //importing DB-Models
@@ -294,5 +294,13 @@ app.use('/approvals', ApprovalRoute)
 app.use('/results', resultRoute)
 
 
-console.log(`Server is running on port ${PORT}`);
-console.log(`Database URL: ${MONGODB_URL}`);
+mongoose.connect(MongoDBURL)
+.then(()=>{
+    console.log('app is connected with database');
+    app.listen(PORT, ()=>{
+        console.log(` this is listening to port: ${PORT}`)
+    });
+})
+.catch((err)=>{
+    console.log(err);
+});
