@@ -1,7 +1,12 @@
-export const PORT = 5000;
+import dotenv from 'dotenv';
 
-//for local server using MONGOD~MONGOSH
-// export const MongoDBURL = 'mongodb://127.0.0.1:27017/Quizly';
+// Load environment variables based on the NODE_ENV
+if (process.env.NODE_ENV === 'production') {
+  dotenv.config({ path: '.env.production' });
+} else {
+  dotenv.config({ path: '.env.development' });
+}
 
-//for cloud server Quizly~tut
-export const MongoDBURL = 'mongodb+srv://Azharistan:Azharistan@tut.uiiulfv.mongodb.net/?retryWrites=true&w=majority'
+// Export the environment variables
+export const PORT = process.env.PORT;
+export const MONGODB_URL = process.env.MONGODB_URL;
