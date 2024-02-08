@@ -22,11 +22,13 @@ import questionRoute from './Routes/questionRoute.js';
 import quizRoute from './Routes/quizRoute.js';
 import adminRoute from './Routes/adminRoute.js'
 import ApprovalRoute from './Routes/ApprovalsRoute.js'
+import resultRoute from './Routes/resultRoute.js'
 
 
 import Jwt from "jsonwebtoken";
 
 import cors from 'cors';
+import { Result } from "./models/Results.js";
 const app = express();
 
 app.use(express.json())
@@ -154,6 +156,53 @@ app.post('/api/joinClass', async (req, res)=>{
         return res.status(200).send({message: 'Class data updated'})
 })
 
+app.post('/checkQuiz', async (req, res) => {
+    try {
+        let marks = 0;
+        var answer = []
+        const questions = req.body.answers;
+
+        for (const question of questions) {
+            if (question.questionID) {
+                const q = await Question.findById(question.questionID);
+                if (q && q.correct === question.answer) {
+                    marks++;
+                }
+                const ans = {
+                    questionID : q._id,
+                    correctAnswer : q.correct,
+                    givenAnswer: question.answer
+                }
+                answer = [...answer, ans]
+            }
+        }
+        console.log(answer)
+        const newResult = {
+            regno : req.body.regNo,
+            quizID: req.body.quizID,
+            marksObtained : marks,
+            answers : answer
+        }
+
+        const result = await Result.create(newResult)
+        const quiz = await Quiz.findOne({ _id: req.body.quizID });
+        const attempteeIndex = quiz.attemptees.findIndex(obj => obj.regNo === req.body.regNo);
+        
+        if (attempteeIndex !== -1) {
+            quiz.attemptees[attempteeIndex].marks = marks;
+            await quiz.save(); // Save the updated quiz
+        }
+
+        // Send response with marks or other data
+        return res.json({ marks });
+    } catch (error) {
+        console.error('Error while checking quiz:', error);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+
 //api to check if a user with given ID/Password exist or not
 app.post('/api/login', async (req, res)=>{
     const pass = (objectHash.MD5(req.body.password))
@@ -242,6 +291,7 @@ app.use('/quizes', quizRoute)
 app.use('/departments', departmentRoute)
 app.use('/admins', adminRoute)
 app.use('/approvals', ApprovalRoute)
+app.use('/results', resultRoute)
 
 
 mongoose.connect(MongoDBURL)

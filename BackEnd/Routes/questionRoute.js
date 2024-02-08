@@ -10,18 +10,21 @@ router.post('/getByCourse', async (request, response)=>{
 
         if(request.body.courseID && 
            request.body.topic &&
-           request.body.subTopic ){
+           (request.body.subTopic !== "") ){
             const question = await Question.find({
                 courseID: request.body.courseID,
                 topic : request.body.topic,
                 subTopic : request.body.subTopic
            })
+           console.log('a')
            return response.status(200).json({
             count: question.length,
             question});
         }
         else if(request.body.courseID && 
             request.body.topic) {
+           console.log('b')
+
                 const question = await Question.find({
                 courseID: request.body.courseID,
                 topic : request.body.topic})
@@ -30,6 +33,8 @@ router.post('/getByCourse', async (request, response)=>{
                     question});
         }
         else if(request.body.courseID){
+           console.log('c')
+
             const question = await Question.find({
                 courseID: request.body.courseID})
                 return response.status(200).json({
@@ -50,7 +55,6 @@ router.post('/', async (req, res)=>{
         if(
             !req.body.courseID ||
             !req.body.statement ||
-            !req.body.topic ||
             !req.body.options ||
             !req.body.correct 
         ) {

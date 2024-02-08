@@ -1,6 +1,5 @@
-import express, { response } from 'express'
-import { Quiz } from '../models/QuizModel.js';
-import jwt from 'jsonwebtoken';
+import express from 'express'
+import { Session } from '../models/SessionModel.js';
 import Jwt from "jsonwebtoken";
 
 
@@ -9,30 +8,18 @@ const router = express.Router();
 router.post('/', async (req, res)=>{
     try{
         if(
-            !req.body.courseID ||
-            !req.body.depID ||
-            !req.body.createdBy ||
-            !req.body.marks||
-            !req.body.questions
+            !req.body.currentSession
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
             });
         }
 
-        const newQuiz = {
-            _id: req.body._id,
-            courseID: req.body.courseID,
-            depID: req.body.depID,
-            correct: req.body.correct,
-            createdBy: req.body.createdBy,
-            marks: req.body.marks,
-            date: req.body.date,
-            questions: req.body.questions,
-            
+        const newSession = {
+            currentSession: req.body.currentSession,
         };
-        const quiz = await Quiz.create(newQuiz)
-        return res.status(201).send(quiz)
+        const session = await Session.create(newSession)
+        return res.status(201).send(session)
     } catch(error){
         console.log(error.message);
         res.status(500).send({message: error.message})
@@ -41,7 +28,7 @@ router.post('/', async (req, res)=>{
 
 router.get('/', async (request, response)=>{
     try{
-    const quiz = await Quiz.find({});
+    const se = await Quiz.find({});
     
 
     return response.status(200).json({
@@ -129,22 +116,21 @@ router.post('/publishQuiz/:id', async (request, response)=>{
     return response.json({status: 'ok', quiz: quiz, quizToken})
 })
 
-router.post('/attempt/:id', async (request, response)=>{
+router.get('/attempt/:id', async (request, response)=>{
     try {
 
-        console.log(request.body.studentID)
-        console.log("asd")
+        console.log('asd')
+        
         const {id} = request.params;
         const quiz = await Quiz.findOne({_id:id})
-        // if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
-        // {
-        //     return response.json({status: 'Already attempted'})
-        // }
-        // else
+        if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
+        {
+            return response.json({status: 'Already attempted'})
+        }
+        else
         {
             const obj = {
                 regNo: request.body.studentID,
-                marks : 0
             }
             quiz.attemptees.push(obj)
             const update = await Quiz.findByIdAndUpdate({_id: id}, quiz)
