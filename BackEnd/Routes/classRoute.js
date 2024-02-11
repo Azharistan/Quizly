@@ -18,9 +18,9 @@ router.post('/', async (req, res)=>{
                 message: 'Send all data.'
             });
         }
-        const session = await Session.findOne({})
+        // const session = await Session.findOne({})
         const newClass = {
-            _id : session.currentSession+req.body.courseID,
+            // _id : session.currentSession+req.body.courseID,
             instructor: req.body.instructor, //TODO: unique _id, unique students,
             section: req.body.section,
             courseID: req.body.courseID, 
