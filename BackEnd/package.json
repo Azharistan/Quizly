@@ -9,12 +9,12 @@
     "dev": "nodemon index.js",
     "start:dev": "dotenv -e .env.development node server.js",
     "start:prod": "dotenv -e .env.production node server.js"
-  
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^8.1.0",
     "axios": "^1.6.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.3.0",
     "mongoose": "^7.6.3",
+    "node-cron": "^3.0.3",
     "nodemon": "^3.0.1",
     "object-hash": "^3.0.0",
     "objecthash": "^1.0.2",

@@ -58,6 +58,22 @@ router.get('/getByStd', async (request, response) => {
       response.status(500).send({ message: error.message });
     }
   });
+
+  router.get('/getByQuizID/:id', async (request, response) => {
+    try {
+        const { id } = request.params;
+  
+      const result = await Result.find({ quizID: id });
+  
+      return response.status(200).json({
+        count: result.length,
+        result
+      });
+    } catch (error) {
+      console.log(error.message);
+      response.status(500).send({ message: error.message });
+    }
+  });
   
 
 router.get('/:id', async (request,response )=>{

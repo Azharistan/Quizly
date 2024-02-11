@@ -17,6 +17,7 @@ router.post('/', async (req, res)=>{
 
         const newSession = {
             currentSession: req.body.currentSession,
+            semester : req.body.semester
         };
         const session = await Session.create(newSession)
         return res.status(201).send(session)
@@ -26,43 +27,26 @@ router.post('/', async (req, res)=>{
     }
 });
 
-router.get('/', async (request, response)=>{
+router.get('/currentSession', async (request, response)=>{
     try{
-    const se = await Quiz.find({});
+    const session = await Session.findOne({});
     
 
     return response.status(200).json({
-        count: quiz.length,
-        quiz});
+        count: session.length,
+        session});
     }catch(error){
         console.log(error.message)
         response.status(500).send({message : error.message})
     }
 })
 
-router.get('/:id', async (request,response )=>{
-    try{
-        const { id } = request.params;
-
-        const quiz = await Quiz.findById(id);
-
-        return response.status(200).json(quiz)
-    }catch(error){
-        console.log(error.message)
-        response.status(500).send({message : error.message})
-    }
-})
 
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body.quizID ||
-            !req.body.courseID ||
-            !req.body.depID ||
-            !req.body.createdBy ||
-            !req.body.marks||
-            !req.body.date||
-            !req.body.questions
+            !request.body.currentSession ||
+            !request.body.semester
         ) {
             return response.status(400).send({
                 message: 'Send all data.'
@@ -71,13 +55,13 @@ router.put('/:id', async (request, response)=>{
 
         const {id} = request.params;
         
-        const result = await Quiz.findByIdAndUpdate(id, request.body)
+        const result = await Session.findByIdAndUpdate(id, request.body)
         
         if(!result)
         {
-            return response.status(404).json({message: 'Quiz not found'})
+            return response.status(404).json({message: 'Session not found'})
         }
-        return response.status(200).send({message: 'Quiz data updated'})
+        return response.status(200).send({message: 'Session data updated'})
 
     }catch(error){
         console.log(error.message)
@@ -88,11 +72,11 @@ router.put('/:id', async (request, response)=>{
 router.delete('/:id', async (request, response)=>{
     try{
         const {id} = request.params;
-        const del = await Quiz.findByIdAndDelete(id)
+        const del = await Session.findByIdAndDelete(id)
         if(!del){
-            return response.status(404).json({message: 'Quiz not found'})
+            return response.status(404).json({message: 'Session not found'})
         }
-        return response.status(200).send({message : 'Quiz deleted successfully'})
+        return response.status(200).send({message : 'Session deleted successfully'})
     }
     catch(error){
         console.log(error.message)
@@ -100,20 +84,20 @@ router.delete('/:id', async (request, response)=>{
     }
 })
 
-router.post('/publishQuiz/:id', async (request, response)=>{
+router.post('/publishSession/:id', async (request, response)=>{
     const {id} = request.params;
-    const quiz = await Quiz.findOne({_id:id})
+    const session = await Session.findOne({_id:id})
     const expiresIn  = 300;
-    quiz.published = true
+    session.published = true
 
-    const quizToken = jwt.sign({
-        _id: quiz._id,
-        questions: quiz.questions,
-        marks: quiz.marks
-    }, 'QuizlySecret101', {expiresIn });
-    quiz.token = quizToken
-    const update = await Quiz.findByIdAndUpdate(id, quiz)
-    return response.json({status: 'ok', quiz: quiz, quizToken})
+    const sessionToken = jwt.sign({
+        _id: session._id,
+        questions: session.questions,
+        marks: session.marks
+    }, 'SessionlySecret101', {expiresIn });
+    session.token = sessionToken
+    const update = await Session.findByIdAndUpdate(id, session)
+    return response.json({status: 'ok', session: session, sessionToken})
 })
 
 router.get('/attempt/:id', async (request, response)=>{
@@ -122,8 +106,8 @@ router.get('/attempt/:id', async (request, response)=>{
         console.log('asd')
         
         const {id} = request.params;
-        const quiz = await Quiz.findOne({_id:id})
-        if(quiz.attemptees.find((s)=> s.regNo === request.body.studentID))
+        const session = await Session.findOne({_id:id})
+        if(session.attemptees.find((s)=> s.regNo === request.body.studentID))
         {
             return response.json({status: 'Already attempted'})
         }
@@ -132,11 +116,11 @@ router.get('/attempt/:id', async (request, response)=>{
             const obj = {
                 regNo: request.body.studentID,
             }
-            quiz.attemptees.push(obj)
-            const update = await Quiz.findByIdAndUpdate({_id: id}, quiz)
+            session.attemptees.push(obj)
+            const update = await Session.findByIdAndUpdate({_id: id}, session)
         }
 
-    Jwt.verify(quiz.token, "QuizlySecret101", async (err, data)=>{
+    Jwt.verify(session.token, "SessionlySecret101", async (err, data)=>{
         if(err){
             if(err.name === 'TokenExpiredError'){
 

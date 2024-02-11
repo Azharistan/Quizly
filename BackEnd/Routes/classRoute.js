@@ -1,5 +1,7 @@
-import express from 'express'
+import express, { response } from 'express'
 import { Class } from '../models/ClassModel.js';
+import { Student } from '../models/studentModel.js';
+import { Session } from '../models/SessionModel.js';
 
 
 const router = express.Router();
@@ -16,7 +18,9 @@ router.post('/', async (req, res)=>{
                 message: 'Send all data.'
             });
         }
+        const session = await Session.findOne({})
         const newClass = {
+            _id : session.currentSession+req.body.courseID,
             instructor: req.body.instructor, //TODO: unique _id, unique students,
             section: req.body.section,
             courseID: req.body.courseID, 
@@ -44,6 +48,18 @@ router.get('/', async (request, response)=>{
         console.log(error.message)
         response.status(500).send({message : error.message})
     }
+})
+
+router.get('/getStudents/:id', async (request, response)=>{
+try{
+    const {id} = request.params;
+    const class1 = await Class.findById(id)
+    const document = await Student.find({ _id: { $in: class1.stdList }})
+    return response.status(200).json({stdList: document})
+
+}catch(error){
+    console.log(error.message)
+}
 })
 
 router.post('/getByInstructor', async (request, response)=>{
@@ -78,6 +94,7 @@ router.get('/:id', async (request,response )=>{
 
 router.put('/:id', async (req, response)=>{
     try{
+        console.log("asdnkjsadlsad = ",req.body)
         if(
             !req.body._id ||
             !req.body.instructor 

@@ -2,6 +2,10 @@ import express, { response } from "express";
 import {PORT, MongoDBURL} from "./config.js";
 import mongoose from "mongoose";
 import objectHash from "object-hash";
+import dotenv from 'dotenv'
+
+dotenv.config();
+
 //importing DB-Models
 import { Student } from "./models/studentModel.js";
 import { Instructor } from "./models/InstructorModel.js";
@@ -12,6 +16,7 @@ import { Question } from "./models/QuestionModel.js";
 import { Quiz } from "./models/QuizModel.js";
 import { Admin } from "./models/AdminModel.js"
 import { Approvals } from "./models/ApprovalsModel.js"
+import { Session } from "./models/SessionModel.js";
 //importing Routes
 import studentRoute from './Routes/studentRoute.js';
 import instructorRoute from './Routes/instructorRoute.js';
@@ -23,8 +28,9 @@ import quizRoute from './Routes/quizRoute.js';
 import adminRoute from './Routes/adminRoute.js'
 import ApprovalRoute from './Routes/ApprovalsRoute.js'
 import resultRoute from './Routes/resultRoute.js'
+import sessionRoute from './Routes/sessionRoute.js'
 
-
+// import sendResults from './sendResults.js'
 import Jwt from "jsonwebtoken";
 
 import cors from 'cors';
@@ -40,6 +46,21 @@ app.use(cors(
     //     credentials : true
     // }
 ))
+
+// const cron = require('node-cron');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/', (req, res)=>{
     console.log(req)
@@ -292,6 +313,7 @@ app.use('/departments', departmentRoute)
 app.use('/admins', adminRoute)
 app.use('/approvals', ApprovalRoute)
 app.use('/results', resultRoute)
+app.use('/sessions', sessionRoute)
 
 
 mongoose.connect(MongoDBURL)

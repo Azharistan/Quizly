@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 
 const classSchema = mongoose.Schema(
     {
+        _id : {
+            type : String
+        },
         stdList : [{
             type : String,
         }],
