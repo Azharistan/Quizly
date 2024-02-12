@@ -5,10 +5,10 @@ import Jwt from "jsonwebtoken";
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.currentSession
+            !request.body.currentSession
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -16,8 +16,8 @@ router.post('/', async (req, res)=>{
         }
 
         const newSession = {
-            currentSession: req.body.currentSession,
-            semester : req.body.semester
+            currentSession: request.body.currentSession,
+            semester : request.body.semester
         };
         const session = await Session.create(newSession)
         return res.status(201).send(session)

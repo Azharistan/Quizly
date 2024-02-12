@@ -7,11 +7,11 @@ import { Admin } from '../models/AdminModel.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body._id ||
-            !req.body.pass
+            !request.body._id ||
+            !request.body.pass
             ) {
                 return res.status(400).send({
                     message: 'Send all data.'
@@ -19,8 +19,8 @@ router.post('/', async (req, res)=>{
             }
 
         const newAdmin = {
-            _id: req.body._id,
-            pass: objectHash.MD5(req.body.pass)           
+            _id: request.body._id,
+            pass: objectHash.MD5(request.body.pass)           
         };
         const admin = await Admin.create(newAdmin)
         return res.status(201).send(admin)
@@ -60,8 +60,8 @@ router.get('/:id', async (request,response )=>{
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body._id ||
-            !req.body.pass 
+            !request.body._id ||
+            !request.body.pass 
         ) {
             return response.status(400).send({
                 message: 'Send all data.'

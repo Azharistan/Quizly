@@ -5,15 +5,15 @@ import  Jwt  from 'jsonwebtoken';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body._id ||
-            !req.body.name ||
-            !req.body.whatsapp ||
-            !req.body.department ||
-            !req.body.email ||
-            !req.body.password
+            !request.body._id ||
+            !request.body.name ||
+            !request.body.whatsapp ||
+            !request.body.department ||
+            !request.body.email ||
+            !request.body.password
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -21,12 +21,12 @@ router.post('/', async (req, res)=>{
         }
 
         const newInstructor = {
-            _id: req.body._id,
-            name: req.body.name,
-            whatsapp: req.body.whatsapp,
-            department: req.body.department,
-            email: req.body.email,
-            password: objectHash.MD5(req.body.password),
+            _id: request.body._id,
+            name: request.body.name,
+            whatsapp: request.body.whatsapp,
+            department: request.body.department,
+            email: request.body.email,
+            password: objectHash.MD5(request.body.password),
             
         };
         const instructor = await Instructor.create(newInstructor)

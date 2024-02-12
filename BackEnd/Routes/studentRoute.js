@@ -7,15 +7,15 @@ import objectHash from 'object-hash';
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', async (request, res) => {
     try {
         if (
-            !req.body.name ||
-            !req.body._id ||
-            !req.body.semester ||
-            !req.body.whatsapp ||
-            !req.body.email ||
-            !req.body.password
+            !request.body.name ||
+            !request.body._id ||
+            !request.body.semester ||
+            !request.body.whatsapp ||
+            !request.body.email ||
+            !request.body.password
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -23,12 +23,12 @@ router.post('/', async (req, res) => {
         }
 
         const newStudent = {
-            name: req.body.name,
-            _id: req.body._id,
-            whatsapp: req.body.whatsapp,
-            semester: req.body.semester,
-            email: req.body.email,
-            password: objectHash.MD5(req.body.password),
+            name: request.body.name,
+            _id: request.body._id,
+            whatsapp: request.body.whatsapp,
+            semester: request.body.semester,
+            email: request.body.email,
+            password: objectHash.MD5(request.body.password),
 
         };
 

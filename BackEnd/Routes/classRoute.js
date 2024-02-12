@@ -6,13 +6,13 @@ import { Session } from '../models/SessionModel.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         
         if(
-            !req.body.instructor ||
-            !req.body.section ||
-            !req.body.courseID
+            !request.body.instructor ||
+            !request.body.section ||
+            !request.body.courseID
             ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -20,10 +20,10 @@ router.post('/', async (req, res)=>{
         }
         const session = await Session.findOne({})
         const newClass = {
-            _id : session.currentSession+req.body.courseID,
-            instructor: req.body.instructor, //TODO: unique _id, unique students,
-            section: req.body.section,
-            courseID: req.body.courseID, 
+            _id : session.currentSession+request.body.courseID,
+            instructor: request.body.instructor, //TODO: unique _id, unique students,
+            section: request.body.section,
+            courseID: request.body.courseID, 
             stdList: []           
         };
         console.log(newClass)
@@ -92,21 +92,21 @@ router.get('/:id', async (request,response )=>{
     }
 })
 
-router.put('/:id', async (req, response)=>{
+router.put('/:id', async (request, response)=>{
     try{
-        console.log("asdnkjsadlsad = ",req.body)
+        console.log("asdnkjsadlsad = ",request.body)
         if(
-            !req.body._id ||
-            !req.body.instructor 
+            !request.body._id ||
+            !request.body.instructor 
         ) {
             return response.status(400).send({
                 message: 'Send all data.'
             });
         }
 
-        const {id} = req.params;
+        const {id} = request.params;
         
-        const result = await Class.findByIdAndUpdate(id, req.body)
+        const result = await Class.findByIdAndUpdate(id, request.body)
         
         if(!result)
         {
@@ -123,7 +123,7 @@ router.put('/:id', async (req, response)=>{
 router.delete('/:id', async (request, response)=>{
     try{
         const {id} = request.params;
-        const del = await Instructor.findByIdAndDelete(id)
+        const del = await Class.findByIdAndDelete(id)
         if(!del){
             return response.status(404).json({message: 'Class not found'})
         }

@@ -5,11 +5,11 @@ import { Department } from '../models/DepartmentModel.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.name ||
-            !req.body._id 
+            !request.body.name ||
+            !request.body._id 
             ) {
                 return res.status(400).send({
                     message: 'Send all data.'
@@ -17,10 +17,10 @@ router.post('/', async (req, res)=>{
             }
 
         const newDepartment = {
-            name: req.body.name,
-            _id: req.body._id,
-            dean: req.body.dean,
-            hod: req.body.hod,            
+            name: request.body.name,
+            _id: request.body._id,
+            dean: request.body.dean,
+            hod: request.body.hod,            
         };
         const dep = await Department.create(newDepartment)
         return res.status(201).send(dep)
@@ -60,10 +60,8 @@ router.get('/:id', async (request,response )=>{
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body.name ||
-            !req.body._id ||
-            !req.body.dean ||
-            !req.body.hod  
+            !request.body.name ||
+            !request.body._id
         ) {
             return response.status(400).send({
                 message: 'Send all data.'

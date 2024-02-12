@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import {PORT, MongoDBURL} from "./config.js";
 import mongoose from "mongoose";
 import objectHash from "object-hash";
@@ -16,6 +16,7 @@ import { Question } from "./models/QuestionModel.js";
 import { Quiz } from "./models/QuizModel.js";
 import { Admin } from "./models/AdminModel.js"
 import { Approvals } from "./models/ApprovalsModel.js"
+import { Result } from "./models/Results.js";
 import { Session } from "./models/SessionModel.js";
 //importing Routes
 import studentRoute from './Routes/studentRoute.js';
@@ -34,7 +35,6 @@ import sessionRoute from './Routes/sessionRoute.js'
 import Jwt from "jsonwebtoken";
 
 import cors from 'cors';
-import { Result } from "./models/Results.js";
 const app = express();
 
 app.use(express.json())
@@ -62,16 +62,16 @@ app.use(cors(
 
 
 
-app.get('/', (req, res)=>{
-    console.log(req)
+app.get('/', (request, res)=>{
+    console.log(request)
     return res.status(234).send('Quizly')
 });
 
 
 //api to decrypt JWT or JsonWebToken
-app.post('/api/token',async (req, res)=>{
-if(req.body.token){
-        Jwt.verify(req.body.token, "QuizlySecret101", async (err,data)=>{
+app.post('/api/token',async (request, res)=>{
+if(request.body.token){
+        Jwt.verify(request.body.token, "QuizlySecret101", async (err,data)=>{
             if(err){
                 if(err.name === 'TokenExpiredError'){
 
@@ -110,12 +110,84 @@ if(req.body.token){
     
 })
 
-app.post('/api/request', async (req, res)=>{
+
+
+
+import cron from 'node-cron';
+import sgMail from '@sendgrid/mail'
+
+app.get('/ShareResult/:id', async (request, response) => {
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+    const { id } = request.params;
+    const quiz = await Quiz.findById(id);
+    const stds = quiz.attemptees;
+    
+    for (const std of stds) {
+        const result = await Result.findOne({
+            regno: std.regNo,
+            quizID: id // Assuming quiz._id is a string
+        });
+
+        if (result) {
+            const student = await Student.findById(std.regNo);
+
+            if (student) {
+                let answers = [];
+
+                for (const ans of result.answers) {
+                    const question = await Question.findById(ans.questionID);
+                    answers.push({
+                        statement: question.statement,
+                        correctAnswer: ans.correctAnswer,
+                        givenAnswer: ans.givenAnswer
+                    });
+                }
+
+                const htmlContent = `
+                    <p>Quiz results for ${quiz.courseID} taken on ${quiz.updatedAt}:</p>
+                    <table border="1">
+                        <tr>
+                            <th>Question</th>
+                            <th>Correct Answer</th>
+                            <th>Given Answer</th>
+                        </tr>
+                        ${answers.map(answer => `
+                            <tr>
+                                <td>${answer.statement}</td>
+                                <td>${answer.correctAnswer}</td>
+                                <td>${answer.givenAnswer}</td>
+                            </tr>
+                        `).join('')}
+                    </table>
+                    <h3>You have successfully achieved ${result.marksObtained} Marks.</h3>
+                `;
+
+                const msg = {
+                    to: student.email,
+                    from: 'quizlyteam7889@gmail.com',
+                    subject: `Quiz result for ${quiz.courseID} taken on ${quiz.updatedAt}`,
+                    html: htmlContent
+                };
+
+                sgMail.send(msg).then(() => {
+                    console.log(`Email sent to ${student.email}`);
+                }).catch(error => {
+                    console.error(`Error sending email to ${student.email}:`, error);
+                });
+            }
+        }
+    }
+
+    response.status(200).json({ message: 'Emails are being sent.' });
+});
+
+app.post('/api/request', async (request, res)=>{
     const approval = await Approvals.findOne({
-        from: req.body.from,
-        detail: req.body.detail,
-        section: req.body.section,
-        courseID: req.body.courseID
+        from: request.body.from,
+        detail: request.body.detail,
+        section: request.body.section,
+        courseID: request.body.courseID
     })
     console.log(approval)
     if(approval){
@@ -123,10 +195,10 @@ app.post('/api/request', async (req, res)=>{
     }
 })
 
-app.post('/getclass', async (req,res)=>{
-    console.log('req')
+app.post('/getclass', async (request,res)=>{
+    console.log('request')
     const std= await Student.findOne({
-        _id : req.body._id
+        _id : request.body._id
     })
     if(std){
         var cc = []
@@ -144,13 +216,13 @@ app.post('/getclass', async (req,res)=>{
     }
 })
 
-app.post('/api/joinClass', async (req, res)=>{
+app.post('/api/joinClass', async (request, res)=>{
     const Class2 = await Class.findOne({
-        instructor: req.body.to,
-        courseID: req.body.courseID,
-        section: req.body.section
+        instructor: request.body.to,
+        courseID: request.body.courseID,
+        section: request.body.section
     })
-    Class2.stdList.push(req.body.from)
+    Class2.stdList.push(request.body.from)
 
 
     const result = await Class.findByIdAndUpdate(Class2._id, Class2)
@@ -159,7 +231,7 @@ app.post('/api/joinClass', async (req, res)=>{
         {
             return res.status(404).json({message: 'Class not found'})
         }
-        const newStudent = await Student.findOne({_id: req.body.from})
+        const newStudent = await Student.findOne({_id: request.body.from})
         if(newStudent){
 
             console.log(newStudent)
@@ -177,11 +249,11 @@ app.post('/api/joinClass', async (req, res)=>{
         return res.status(200).send({message: 'Class data updated'})
 })
 
-app.post('/checkQuiz', async (req, res) => {
+app.post('/checkQuiz', async (request, res) => {
     try {
         let marks = 0;
         var answer = []
-        const questions = req.body.answers;
+        const questions = request.body.answers;
 
         for (const question of questions) {
             if (question.questionID) {
@@ -199,15 +271,15 @@ app.post('/checkQuiz', async (req, res) => {
         }
         console.log(answer)
         const newResult = {
-            regno : req.body.regNo,
-            quizID: req.body.quizID,
+            regno : request.body.regNo,
+            quizID: request.body.quizID,
             marksObtained : marks,
             answers : answer
         }
 
         const result = await Result.create(newResult)
-        const quiz = await Quiz.findOne({ _id: req.body.quizID });
-        const attempteeIndex = quiz.attemptees.findIndex(obj => obj.regNo === req.body.regNo);
+        const quiz = await Quiz.findOne({ _id: request.body.quizID });
+        const attempteeIndex = quiz.attemptees.findIndex(obj => obj.regNo === request.body.regNo);
         
         if (attempteeIndex !== -1) {
             quiz.attemptees[attempteeIndex].marks = marks;
@@ -225,12 +297,12 @@ app.post('/checkQuiz', async (req, res) => {
 
 
 //api to check if a user with given ID/Password exist or not
-app.post('/api/login', async (req, res)=>{
-    const pass = (objectHash.MD5(req.body.password))
+app.post('/api/login', async (request, res)=>{
+    const pass = (objectHash.MD5(request.body.password))
     const expireTime = 60*60*24*30;
-    if((req.body._id).includes("B")){
+    if((request.body._id).includes("B")){
         const student = await Student.findOne({
-            _id: req.body._id,
+            _id: request.body._id,
             password: pass
         })
 
@@ -252,10 +324,10 @@ app.post('/api/login', async (req, res)=>{
             
         }
     }
-    else if((req.body._id).includes("PROF")){
+    else if((request.body._id).includes("PROF")){
         console.log("Going Instructor")
         const instructor = await Instructor.findOne({
-            _id: req.body._id,
+            _id: request.body._id,
             password: pass
         })
         
@@ -277,13 +349,13 @@ app.post('/api/login', async (req, res)=>{
             
         }
     }
-    else if((req.body._id).includes("ADM")){
+    else if((request.body._id).includes("ADM")){
         console.log("Going Admin")
-        console.log(req.body._id)
-        console.log(req.body.password)
+        console.log(request.body._id)
+        console.log(request.body.password)
         const admin = await Admin.findOne({
-            _id: req.body._id,
-            pass: req.body.password
+            _id: request.body._id,
+            pass: request.body.password
         })
         console.log(admin)
         

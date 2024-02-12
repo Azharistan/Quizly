@@ -3,13 +3,13 @@ import { Course } from '../models/CourseModel.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.name ||
-            !req.body._id ||
-            !req.body.depID ||
-            !req.body.creditHr 
+            !request.body.name ||
+            !request.body._id ||
+            !request.body.depID ||
+            !request.body.creditHr 
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -17,10 +17,10 @@ router.post('/', async (req, res)=>{
         }
 
         const newCourse = {
-            name: req.body.name,
-            _id: req.body._id,
-            depID: req.body.depID,
-            creditHr: req.body.creditHr,            
+            name: request.body.name,
+            _id: request.body._id,
+            depID: request.body.depID,
+            creditHr: request.body.creditHr,            
         };
         const course = await Course.create(newCourse)
         return res.status(201).send(course)

@@ -3,12 +3,12 @@ import { Result } from '../models/Results.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.regno ||
-            !req.body.quizID ||
-            !req.body.marksObtained 
+            !request.body.regno ||
+            !request.body.quizID ||
+            !request.body.marksObtained 
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -16,9 +16,9 @@ router.post('/', async (req, res)=>{
         }
 
         const newResult = {
-            regno: req.body.regno,
-            quizID: req.body.quizID,
-            marksObtained: req.body.marksObtained,  
+            regno: request.body.regno,
+            quizID: request.body.quizID,
+            marksObtained: request.body.marksObtained,  
         };
         const result = await Result.create(newResult)
         return res.status(201).send(result)

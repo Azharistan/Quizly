@@ -7,27 +7,27 @@ import { Approvals } from '../models/ApprovalsModel.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     console.log('in POST')
 
     try{
         
         if(
-            !req.body.courseID ||
-            !req.body.section
+            !request.body.courseID ||
+            !request.body.section
             ) {
-                console.log(req.body)
+                console.log(request.body)
                 return res.status(400).send({
                     message: 'Send all data.'
                 });
             }
 
         const newApprovals = {
-            from: req.body.instructor ? req.body.instructor : req.body.student,         
-            detail: req.body.instructor ? 'Create': 'Join',         
-            to: req.body.to,         
-            courseID: req.body.courseID,         
-            section: req.body.section,         
+            from: request.body.instructor ? request.body.instructor : request.body.student,         
+            detail: request.body.instructor ? 'Create': 'Join',         
+            to: request.body.to,         
+            courseID: request.body.courseID,         
+            section: request.body.section,         
         };
         const exist = await Approvals.findOne(newApprovals)
         console.log(exist)
@@ -111,10 +111,10 @@ router.get('/byuser/:id', async (request,response )=>{
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body.from ||
-            !req.body.detail ||
-            !req.body.courseID ||
-            !req.body.section
+            !request.body.from ||
+            !request.body.detail ||
+            !request.body.courseID ||
+            !request.body.section
         ) {
             return response.status(400).send({
                 message: 'Send all data.'

@@ -6,14 +6,14 @@ import Jwt from "jsonwebtoken";
 
 const router = express.Router();
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.courseID ||
-            !req.body.depID ||
-            !req.body.createdBy ||
-            !req.body.marks||
-            !req.body.questions
+            !request.body.courseID ||
+            !request.body.depID ||
+            !request.body.createdBy ||
+            !request.body.marks||
+            !request.body.questions
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -21,14 +21,14 @@ router.post('/', async (req, res)=>{
         }
 
         const newQuiz = {
-            _id: req.body._id,
-            courseID: req.body.courseID,
-            depID: req.body.depID,
-            correct: req.body.correct,
-            createdBy: req.body.createdBy,
-            marks: req.body.marks,
-            date: req.body.date,
-            questions: req.body.questions,
+            _id: request.body._id,
+            courseID: request.body.courseID,
+            depID: request.body.depID,
+            correct: request.body.correct,
+            createdBy: request.body.createdBy,
+            marks: request.body.marks,
+            date: request.body.date,
+            questions: request.body.questions,
             
         };
         const quiz = await Quiz.create(newQuiz)
@@ -69,13 +69,13 @@ router.get('/:id', async (request,response )=>{
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body.quizID ||
-            !req.body.courseID ||
-            !req.body.depID ||
-            !req.body.createdBy ||
-            !req.body.marks||
-            !req.body.date||
-            !req.body.questions
+            !request.body.quizID ||
+            !request.body.courseID ||
+            !request.body.depID ||
+            !request.body.createdBy ||
+            !request.body.marks||
+            !request.body.date||
+            !request.body.questions
         ) {
             return response.status(400).send({
                 message: 'Send all data.'

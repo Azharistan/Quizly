@@ -50,13 +50,13 @@ router.post('/getByCourse', async (request, response)=>{
     }
 })
 
-router.post('/', async (req, res)=>{
+router.post('/', async (request, res)=>{
     try{
         if(
-            !req.body.courseID ||
-            !req.body.statement ||
-            !req.body.options ||
-            !req.body.correct 
+            !request.body.courseID ||
+            !request.body.statement ||
+            !request.body.options ||
+            !request.body.correct 
         ) {
             return res.status(400).send({
                 message: 'Send all data.'
@@ -68,12 +68,12 @@ router.post('/', async (req, res)=>{
         // console.dir(Question.find({}))
 
         const newQuestion = {
-            courseID: req.body.courseID,
-            statement: req.body.statement,
-            topic: req.body.topic,
-            subTopic: req.body.subTopic,
-            correct: req.body.correct,
-            options: req.body.options
+            courseID: request.body.courseID,
+            statement: request.body.statement,
+            topic: request.body.topic,
+            subTopic: request.body.subTopic,
+            correct: request.body.correct,
+            options: request.body.options
             
         };
         const question = await Question.create(newQuestion)
@@ -114,16 +114,16 @@ router.get('/:id', async (request,response )=>{
 router.put('/:id', async (request, response)=>{
     try{
         if(
-            !req.body._id ||
-            !req.body.courseID ||
-            !req.body.statement ||
-            !req.body.topic ||
-            !req.body.subTopic ||
-            !req.body.correct ||
-            !req.body.opt1||
-            !req.body.opt2||
-            !req.body.opt3||
-            !req.body.opt4
+            !request.body._id ||
+            !request.body.courseID ||
+            !request.body.statement ||
+            !request.body.topic ||
+            !request.body.subTopic ||
+            !request.body.correct ||
+            !request.body.opt1||
+            !request.body.opt2||
+            !request.body.opt3||
+            !request.body.opt4
         ) {
             return response.status(400).send({
                 message: 'Send all data.'
