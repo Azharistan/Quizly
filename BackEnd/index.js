@@ -114,73 +114,73 @@ if(request.body.token){
 
 
 import cron from 'node-cron';
-import sgMail from '@sendgrid/mail'
+// import sgMail from '@sendgrid/mail'
 
-app.get('/ShareResult/:id', async (request, response) => {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// app.get('/ShareResult/:id', async (request, response) => {
+//     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-    const { id } = request.params;
-    const quiz = await Quiz.findById(id);
-    const stds = quiz.attemptees;
+//     const { id } = request.params;
+//     const quiz = await Quiz.findById(id);
+//     const stds = quiz.attemptees;
     
-    for (const std of stds) {
-        const result = await Result.findOne({
-            regno: std.regNo,
-            quizID: id // Assuming quiz._id is a string
-        });
+//     for (const std of stds) {
+//         const result = await Result.findOne({
+//             regno: std.regNo,
+//             quizID: id // Assuming quiz._id is a string
+//         });
 
-        if (result) {
-            const student = await Student.findById(std.regNo);
+//         if (result) {
+//             const student = await Student.findById(std.regNo);
 
-            if (student) {
-                let answers = [];
+//             if (student) {
+//                 let answers = [];
 
-                for (const ans of result.answers) {
-                    const question = await Question.findById(ans.questionID);
-                    answers.push({
-                        statement: question.statement,
-                        correctAnswer: ans.correctAnswer,
-                        givenAnswer: ans.givenAnswer
-                    });
-                }
+//                 for (const ans of result.answers) {
+//                     const question = await Question.findById(ans.questionID);
+//                     answers.push({
+//                         statement: question.statement,
+//                         correctAnswer: ans.correctAnswer,
+//                         givenAnswer: ans.givenAnswer
+//                     });
+//                 }
 
-                const htmlContent = `
-                    <p>Quiz results for ${quiz.courseID} taken on ${quiz.updatedAt}:</p>
-                    <table border="1">
-                        <tr>
-                            <th>Question</th>
-                            <th>Correct Answer</th>
-                            <th>Given Answer</th>
-                        </tr>
-                        ${answers.map(answer => `
-                            <tr>
-                                <td>${answer.statement}</td>
-                                <td>${answer.correctAnswer}</td>
-                                <td>${answer.givenAnswer}</td>
-                            </tr>
-                        `).join('')}
-                    </table>
-                    <h3>You have successfully achieved ${result.marksObtained} Marks.</h3>
-                `;
+//                 const htmlContent = `
+//                     <p>Quiz results for ${quiz.courseID} taken on ${quiz.updatedAt}:</p>
+//                     <table border="1">
+//                         <tr>
+//                             <th>Question</th>
+//                             <th>Correct Answer</th>
+//                             <th>Given Answer</th>
+//                         </tr>
+//                         ${answers.map(answer => `
+//                             <tr>
+//                                 <td>${answer.statement}</td>
+//                                 <td>${answer.correctAnswer}</td>
+//                                 <td>${answer.givenAnswer}</td>
+//                             </tr>
+//                         `).join('')}
+//                     </table>
+//                     <h3>You have successfully achieved ${result.marksObtained} Marks.</h3>
+//                 `;
 
-                const msg = {
-                    to: student.email,
-                    from: 'quizlyteam7889@gmail.com',
-                    subject: `Quiz result for ${quiz.courseID} taken on ${quiz.updatedAt}`,
-                    html: htmlContent
-                };
+//                 const msg = {
+//                     to: student.email,
+//                     from: 'quizlyteam7889@gmail.com',
+//                     subject: `Quiz result for ${quiz.courseID} taken on ${quiz.updatedAt}`,
+//                     html: htmlContent
+//                 };
 
-                sgMail.send(msg).then(() => {
-                    console.log(`Email sent to ${student.email}`);
-                }).catch(error => {
-                    console.error(`Error sending email to ${student.email}:`, error);
-                });
-            }
-        }
-    }
+//                 sgMail.send(msg).then(() => {
+//                     console.log(`Email sent to ${student.email}`);
+//                 }).catch(error => {
+//                     console.error(`Error sending email to ${student.email}:`, error);
+//                 });
+//             }
+//         }
+//     }
 
-    response.status(200).json({ message: 'Emails are being sent.' });
-});
+//     response.status(200).json({ message: 'Emails are being sent.' });
+// });
 
 app.post('/api/request', async (request, res)=>{
     const approval = await Approvals.findOne({
